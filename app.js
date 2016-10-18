@@ -2,11 +2,10 @@ var express = require('express');
 var app = express();
 var mysql = require('mysql');
 var connection = mysql.createConnection({
-
-  host     : 'localhost',
-  user     : 'root',
-  password : 'root',
-  database : 'mydb'
+  host: "localhost",
+  user: "root",
+  password: "test",
+  port: 3308
 });
 var bodyParser = require('body-parser');
 app.use(bodyParser.json()); // for parsing application/json
@@ -15,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 	
 //connection.connect();
 
-connection.query('SELECT * from mytable1', function(err, rows, fields) {
+connection.query('SELECT * from mydb.mytable1', function(err, rows, fields) {
   if (!err)
     console.log('The solution is: ', rows);
   else
@@ -44,8 +43,8 @@ app.get('/showSignInPage',function(req,res){
 app.get('/showSignInPageretry',function(req,res){
     res.sendFile('signinretry.html',{'root': __dirname + '/templates'});
 });
-app.get('/showSignUpPage',function(req,res){
-  res.sendFile('signup.html',{'root':__dirname + '/templates'})
+app.get('/showAddUser',function(req,res){
+  res.sendFile('addUser.html',{'root':__dirname + '/templates'})
 });
 
 app.get('/message',function(req,res){
@@ -63,7 +62,7 @@ app.post('/myaction', function(req, res) {
 	var record = {email: req.body.email, pass: req.body.pass};
 
 	//connection.connect();
-	connection.query('INSERT INTO mytable1 SET ?', record, function(err,res){
+	connection.query('INSERT INTO mydb.mytable1 SET ?', record, function(err,res){
 	  	if(err) throw err;
 		console.log('Last record insert id:', res.insertId);
 		
@@ -79,7 +78,7 @@ app.post('/myaction', function(req, res) {
 app.post('/verifyuser', function(req,res){
 	console.log('checking user in database');
 	console.log(req.body.pass);
-	var selectString = 'SELECT COUNT(email) FROM mytable1 WHERE email="'+req.body.email+'" AND pass="'+req.body.pass+'" ';
+	var selectString = 'SELECT COUNT(email) FROM mydb.mytable1 WHERE email="'+req.body.email+'" AND pass="'+req.body.pass+'" ';
 	 
 	connection.query(selectString, function(err, results) {
 		
@@ -96,7 +95,6 @@ app.post('/verifyuser', function(req,res){
         	
         }
 });
-
-
-
 });
+
+
