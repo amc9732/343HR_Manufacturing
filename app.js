@@ -4,8 +4,8 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "test",
-  port: 3308
+  password: "",
+  port: 3306
 });
 var bodyParser = require('body-parser');
 app.use(bodyParser.json()); // for parsing application/json
@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 	
 //connection.connect();
 
-connection.query('SELECT * from mydb.mytable1', function(err, rows, fields) {
+connection.query('SELECT * from human_resources.mytable1', function(err, rows, fields) {
   if (!err)
     console.log('The solution is: ', rows);
   else
@@ -44,7 +44,13 @@ app.get('/showSignInPageretry',function(req,res){
     res.sendFile('signinretry.html',{'root': __dirname + '/templates'});
 });
 app.get('/showAddUser',function(req,res){
-  res.sendFile('addUser.html',{'root':__dirname + '/templates'})
+	if(authenticated){
+		res.sendFile('addUser.html',{'root':__dirname + '/templates'})
+	}
+	else{
+		res.sendFile('notloggedin.html', {'root' :__dirname + '/templates'})
+	}
+
 });
 
 app.get('/message',function(req,res){
@@ -53,18 +59,24 @@ app.get('/message',function(req,res){
 
 app.get('/loggedin',function(req,res){
     res.sendFile('loggedin.html',{'root': __dirname + '/templates'});
-	
+
 });
 
 app.get('/showEmployees', function(req, res){
 	//res.send("Test");
-	connection.query('SELECT * FROM mydb.mytable1', function(err,results){
+	if(authenticated){
+		connection.query('SELECT * FROM mydb.mytable1', function(err,results){
 		if(err) throw err;
 		console.log('Test value', results);
 		var string=JSON.stringify(results);
 		console.log('Stringy', string);
 		res.send(results);
-	});	
+	});
+	}
+	else{
+		res.sendFile('notloggedin.html', {'root' :__dirname + '/templates'})
+	}
+
 });
 
 app.post('/myaction', function(req, res) {
@@ -76,7 +88,7 @@ app.post('/myaction', function(req, res) {
 	connection.query('INSERT INTO mydb.mytable1 SET ?', record, function(err,res){
 	  	if(err) throw err;
 		console.log('Last record insert id:', res.insertId);
-		
+
 	});
 
 	res.redirect('/message');
@@ -88,24 +100,22 @@ app.post('/myaction', function(req, res) {
 
 app.post('/verifyuser', function(req,res){
 	console.log('checking user in database');
-	console.log(req.body.pass);
-	var selectString = 'SELECT COUNT(email) FROM mydb.mytable1 WHERE email="'+req.body.email+'" AND pass="'+req.body.pass+'" ';
-	 
+	console.log(req.body);
+	var selectString = 'SELECT COUNT(email) FROM human_resources.mytable1 WHERE email="'+req.body.email+'" AND pass="'+req.body.pass+'" ';
+
 	connection.query(selectString, function(err, results) {
-		
+
         console.log(results);
         var string=JSON.stringify(results);
         console.log(string);
         //this is a walkaround of checking if the email pass combination is 1 or not it will fail if wrong pass is given
         if (string === '[{"COUNT(email)":1}]') {
-			//res.send('Loged In');
 			res.redirect('/loggedin');
-	        }
-        if (string === '[{"COUNT(email)":0}]')  {
+	    } else {
         	res.redirect('/showSignInPageretry');
-        	
         }
 });
-});
 
+
+});
 

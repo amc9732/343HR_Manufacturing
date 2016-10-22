@@ -17,7 +17,7 @@
     <!-- Custom styles for this template -->
     <link href="../style/cover.css" rel="stylesheet">
     <link href="../style/signin.css" rel="stylesheet">
-    <script type="text/javascript" src="../script/jquery-1.11.2.js"></script>
+    <script type="text/javascript" src="../node_modules/jquery/dist/jquery.min.js"></script>
 
     <script type="text/javascript">
       $(function(){
@@ -26,11 +26,13 @@
 		console.log('test for Sign-In 2');
           evt.preventDefault();
           $.ajax({
-            url: '/signin',
+            url: '/verifyuser',
             type:'POST',
+            email: $('#email').value();
+            pass: $('#pass').value();
+            context: this,
             success:function(response){
-              console.log('test for Sign-In');
-			  console.log(response);
+
             },
             error:function(error){
               console.log(error);
