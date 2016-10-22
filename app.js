@@ -39,7 +39,13 @@ app.get('/',function(req,res){
 
 
 app.get('/showSignInPage',function(req,res){
-    res.sendFile('signin.html',{'root': __dirname + '/templates'});
+	if (!authenticated){
+		res.sendFile('signin.html',{'root': __dirname + '/templates'});
+	}
+	if (authenticated){
+		res.sendFile('loggedin.html', {'root':__dirname + '/templates'});
+	}
+
 });
 app.get('/showSignInPageretry',function(req,res){
     res.sendFile('signinretry.html',{'root': __dirname + '/templates'});
@@ -77,6 +83,13 @@ app.get('/showEmployees', function(req, res){
 	else{
 		res.sendFile('notloggedin.html', {'root' :__dirname + '/templates'})
 	}
+	
+});
+
+app.get('/showLogoutSuccess',function(req,res){
+	
+	res.sendFile('logoutsuccess.html',{'root':__dirname + '/templates'})
+	authenticated = false;
 	
 });
 
