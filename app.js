@@ -33,6 +33,8 @@ app.use('/node_modules',  express.static(__dirname + '/node_modules'));
 
 app.use('/style',  express.static(__dirname + '/style'));
 
+app.use('/entries',  express.static(__dirname + '/entries'));
+
 app.get('/',function(req,res){
     res.sendFile('home.html',{'root': __dirname + '/templates'});
 });
@@ -72,7 +74,7 @@ app.get('/loggedin',function(req,res){
 app.get('/showEmployees', function(req, res){
 	//res.send("Test");
 	if(authenticated){
-		connection.query('SELECT * FROM hr_database.employees', function(err,results){
+		connection.query('SELECT * FROM human_resources.mytable1', function(err,results){
 		if(err) throw err;
 		console.log('Test value', results);
 		var string=JSON.stringify(results);
