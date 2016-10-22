@@ -53,8 +53,19 @@ app.get('/message',function(req,res){
 
 app.get('/loggedin',function(req,res){
     res.sendFile('loggedin.html',{'root': __dirname + '/templates'});
+	
 });
 
+app.get('/showEmployees', function(req, res){
+	//res.send("Test");
+	connection.query('SELECT * FROM mydb.mytable1', function(err,results){
+		if(err) throw err;
+		console.log('Test value', results);
+		var string=JSON.stringify(results);
+		console.log('Stringy', string);
+		res.send(results);
+	});	
+});
 
 app.post('/myaction', function(req, res) {
 	console.log('req.body');
@@ -87,8 +98,8 @@ app.post('/verifyuser', function(req,res){
         console.log(string);
         //this is a walkaround of checking if the email pass combination is 1 or not it will fail if wrong pass is given
         if (string === '[{"COUNT(email)":1}]') {
+			//res.send('Loged In');
 			res.redirect('/loggedin');
-	
 	        }
         if (string === '[{"COUNT(email)":0}]')  {
         	res.redirect('/showSignInPageretry');
