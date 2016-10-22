@@ -74,7 +74,7 @@ app.get('/loggedin',function(req,res){
 app.get('/showEmployees', function(req, res){
 	//res.send("Test");
 	if(authenticated){
-		connection.query('SELECT * FROM human_resources.mytable1', function(err,results){
+		connection.query('SELECT * FROM human_resources.employees', function(err,results){
 		if(err) throw err;
 		console.log('Test value', results);
 		var string=JSON.stringify(results);
