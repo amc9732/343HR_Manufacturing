@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+var authenticated = false;
 var mysql = require('mysql');
 var connection = mysql.createConnection({
   host: "localhost",
@@ -59,13 +60,13 @@ app.get('/message',function(req,res){
 
 app.get('/loggedin',function(req,res){
     res.sendFile('loggedin.html',{'root': __dirname + '/templates'});
-
+	
 });
 
 app.get('/showEmployees', function(req, res){
 	//res.send("Test");
 	if(authenticated){
-		connection.query('SELECT * FROM mydb.mytable1', function(err,results){
+		connection.query('SELECT * FROM hr_database.employees', function(err,results){
 		if(err) throw err;
 		console.log('Test value', results);
 		var string=JSON.stringify(results);
@@ -88,7 +89,7 @@ app.post('/myaction', function(req, res) {
 	connection.query('INSERT INTO mydb.mytable1 SET ?', record, function(err,res){
 	  	if(err) throw err;
 		console.log('Last record insert id:', res.insertId);
-
+		
 	});
 
 	res.redirect('/message');
@@ -111,11 +112,11 @@ app.post('/verifyuser', function(req,res){
         //this is a walkaround of checking if the email pass combination is 1 or not it will fail if wrong pass is given
         if (string === '[{"COUNT(email)":1}]') {
 			res.redirect('/loggedin');
+			authenticated = true;
 	    } else {
         	res.redirect('/showSignInPageretry');
         }
 });
-
 
 });
 
