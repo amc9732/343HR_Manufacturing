@@ -19,30 +19,6 @@
     <link href="../style/signin.css" rel="stylesheet">
     <script type="text/javascript" src="../node_modules/jquery/dist/jquery.min.js"></script>
 
-    <script type="text/javascript">
-      $(function(){
-	  console.log('test for Sign-In 1');
-        $('#btnSignIn').click(function(evt){
-		console.log('test for Sign-In 2');
-          evt.preventDefault();
-          $.ajax({
-            url: '/verifyuser',
-            type:'POST',
-            email: $('#email').value();
-            pass: $('#pass').value();
-            context: this,
-            success:function(response){
-
-            },
-            error:function(error){
-              console.log(error);
-            }
-          })
-        })
-      })
-     
-    </script>
-
   </head>
 
   <body>
