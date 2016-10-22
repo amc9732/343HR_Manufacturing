@@ -1,11 +1,12 @@
 var express = require('express');
 var app = express();
+var authenticated = false;
 var mysql = require('mysql');
 var connection = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "test",
-  port: 3308
+  password: "testpassword",
+  port: 3306
 });
 var bodyParser = require('body-parser');
 app.use(bodyParser.json()); // for parsing application/json
@@ -44,7 +45,13 @@ app.get('/showSignInPageretry',function(req,res){
     res.sendFile('signinretry.html',{'root': __dirname + '/templates'});
 });
 app.get('/showAddUser',function(req,res){
-  res.sendFile('addUser.html',{'root':__dirname + '/templates'})
+	if(authenticated){
+		res.sendFile('addUser.html',{'root':__dirname + '/templates'})
+	}
+	else{
+		res.sendFile('notloggedin.html', {'root' :__dirname + '/templates'})
+	}
+
 });
 
 app.get('/message',function(req,res){
@@ -58,13 +65,19 @@ app.get('/loggedin',function(req,res){
 
 app.get('/showEmployees', function(req, res){
 	//res.send("Test");
-	connection.query('SELECT * FROM mydb.mytable1', function(err,results){
+	if(authenticated){
+		connection.query('SELECT * FROM mydb.mytable1', function(err,results){
 		if(err) throw err;
 		console.log('Test value', results);
 		var string=JSON.stringify(results);
 		console.log('Stringy', string);
 		res.send(results);
-	});	
+	});
+	}
+	else{
+		res.sendFile('notloggedin.html', {'root' :__dirname + '/templates'})
+	}
+	
 });
 
 app.post('/myaction', function(req, res) {
@@ -100,6 +113,7 @@ app.post('/verifyuser', function(req,res){
         if (string === '[{"COUNT(email)":1}]') {
 			//res.send('Loged In');
 			res.redirect('/loggedin');
+			authenticated = true;
 	        }
         if (string === '[{"COUNT(email)":0}]')  {
         	res.redirect('/showSignInPageretry');
