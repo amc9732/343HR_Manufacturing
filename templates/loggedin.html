@@ -16,61 +16,6 @@
 
     <!-- Custom styles for this template -->
     <link href="../style/cover.css" rel="stylesheet">
-	
-	<script type="text/javascript">
-		$(document).ready(function displayEmployees(){
-			jQuery.support.cors = true;
-			$.ajax(
-			{
-				console.log('test for displayEmployees')
-				type: "GET",
-				url: '/showEmployee',
-				data: "{}",
-				contentType: "application/json; charset=utf-8",
-				dataType: "json",
-				cache: false,
-				success: function (data) {
-				
-				var tableContent = '';
-					
-				$.each(data, function(){
-					tableContent += '<td>' + this.email '</td>';
-					tableContent += '<td>' + this.pass + '</td>';
-	
-				});
-				
-				$('displayTable').html(tableContent)
-				
-			});
-		})
-		
-		
-		$(function(){
-			$('#displayEmployee').on('click', (function(){
-			  $.ajax({
-				url: '/showEmployees',
-				type:'GET',
-				success:function(response){
-				  console.log(response);
-				  var tableContent = '';
-						
-					$.each(data, function(){
-						tableContent += '<td>' + 'test' '</td>';
-						tableContent += '<td>' + 'test' + '</td>';
-		
-					});
-					
-					$('displayTable').html(tableContent)
-				},
-				error:function(error){
-				  console.log(error);
-				}
-			  })
-			})
-		})
-	</script>
-	
-	
   </head>
 
   <body>
@@ -80,18 +25,25 @@
 					<li><a href="/" class="btn btn-lg btn-primary btn-block">KennUWare</a></li>
 					<li><a href="#" class="btn btn-lg btn-default active">Sign-In</a></li>
 					<li><a href="/showAddUser" class="btn btn-lg btn-default active">Add User</a></li>
+					<li><a href="/showLogoutSuccess" class="btn btn-lg btn-default active">Log Out</a></li>
 				</ul>
 		</div>	
 	</div>
 			
 	<div class="container">
 		<div class="jumbotron">
-			<h2 class="email">Sucessfully Logged In</h2>
+			<h2 class="email">Welcome!</h2>
 			<button id="displayEmployee" onclick="displayEmployees" type="button" class="btn btn-secondary">Refresh</button>
 			<table id="displayTable" class="table table-bordered">
 				<tr>
+					<th>Name</th>
 					<th>Email</th>
-					<th>Password</th>
+					<th>Title</th>
+					<th>Department</th>
+					<th>Salary</th>
+					<th>Superiors</th>
+					<th>Subordinates</th>
+					<th>Status</th>
 				</tr>
 			</table>
 			<div id="displayDiv"></div>
@@ -99,4 +51,6 @@
 	</div>
 	
   </body>
+  <script type="text/javascript" src="../node_modules/jquery/dist/jquery.js"></script>
+  <script type="text/javascript" src="../entries/displayEmployees.js"></script>
 </html>

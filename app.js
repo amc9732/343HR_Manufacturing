@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 	
 //connection.connect();
 
-connection.query('SELECT * from mydb.mytable1', function(err, rows, fields) {
+connection.query('SELECT * from hr_database.employees', function(err, rows, fields) {
   if (!err)
     console.log('The solution is: ', rows);
   else
@@ -33,13 +33,21 @@ app.use('/node_modules',  express.static(__dirname + '/node_modules'));
 
 app.use('/style',  express.static(__dirname + '/style'));
 
+app.use('/entries',  express.static(__dirname + '/entries'));
+
 app.get('/',function(req,res){
     res.sendFile('home.html',{'root': __dirname + '/templates'});
 });
 
 
 app.get('/showSignInPage',function(req,res){
-    res.sendFile('signin.html',{'root': __dirname + '/templates'});
+	if (!authenticated){
+		res.sendFile('signin.html',{'root': __dirname + '/templates'});
+	}
+	if (authenticated){
+		res.sendFile('loggedin.html', {'root':__dirname + '/templates'});
+	}
+
 });
 app.get('/showSignInPageretry',function(req,res){
     res.sendFile('signinretry.html',{'root': __dirname + '/templates'});
@@ -77,6 +85,13 @@ app.get('/showEmployees', function(req, res){
 	else{
 		res.sendFile('notloggedin.html', {'root' :__dirname + '/templates'})
 	}
+
+});
+
+app.get('/showLogoutSuccess',function(req,res){
+	
+	res.sendFile('logoutsuccess.html',{'root':__dirname + '/templates'})
+	authenticated = false;
 	
 });
 
@@ -86,7 +101,7 @@ app.post('/myaction', function(req, res) {
 	var record = {email: req.body.email, pass: req.body.pass};
 
 	//connection.connect();
-	connection.query('INSERT INTO mydb.mytable1 SET ?', record, function(err,res){
+	connection.query('INSERT INTO hr_database.employees SET ?', record, function(err,res){
 	  	if(err) throw err;
 		console.log('Last record insert id:', res.insertId);
 		
@@ -101,25 +116,22 @@ app.post('/myaction', function(req, res) {
 
 app.post('/verifyuser', function(req,res){
 	console.log('checking user in database');
-	console.log(req.body.pass);
-	var selectString = 'SELECT COUNT(email) FROM mydb.mytable1 WHERE email="'+req.body.email+'" AND pass="'+req.body.pass+'" ';
-	 
+	console.log(req.body);
+	var selectString = 'SELECT COUNT(email) FROM hr_database.employees WHERE email="'+req.body.email+'" AND pass="'+req.body.pass+'" ';
+
 	connection.query(selectString, function(err, results) {
-		
+
         console.log(results);
         var string=JSON.stringify(results);
         console.log(string);
         //this is a walkaround of checking if the email pass combination is 1 or not it will fail if wrong pass is given
         if (string === '[{"COUNT(email)":1}]') {
-			//res.send('Loged In');
 			res.redirect('/loggedin');
 			authenticated = true;
-	        }
-        if (string === '[{"COUNT(email)":0}]')  {
+	    } else {
         	res.redirect('/showSignInPageretry');
-        	
         }
 });
-});
 
+});
 
