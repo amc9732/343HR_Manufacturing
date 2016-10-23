@@ -48,7 +48,7 @@ CREATE TABLE `employees` (
 
 LOCK TABLES `employees` WRITE;
 /*!40000 ALTER TABLE `employees` DISABLE KEYS */;
-INSERT INTO `employees` VALUES (1,'Maranda DeStefano','HR Manager','Human Resources',50,'5555555555','mxd1117@rit.edu','123 RIT Lane',NULL,NULL,'Employed',NULL);
+INSERT INTO `employees` VALUES (1,'Maranda DeStefano','HR Manager','Human Resources',50,'5555555555','mxd1117@rit.edu','123 RIT Lane',NULL,NULL,'Employed','password');
 /*!40000 ALTER TABLE `employees` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
