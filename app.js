@@ -88,13 +88,12 @@ app.get('/showEmployees', function(req, res){
 
 });
 
-app.get('/searchEmployees', function(req, res){
+app.post('/searchEmployees', function(req, res){
 	if(authenticated){
-		console.log("Testing Search Employees");
+		var searchText = req.body.searchText;
 		var searchOption = req.body.searchOption;
-		console.log(req.body);
-		console.log(searchOption);
-		connection.query('SELECT * FROM hr_database.employees', function(err,results){
+		var selectString = 'SELECT * FROM hr_database.employees WHERE '+req.body.searchOption+' = "'+req.body.searchText+'" ';
+		connection.query(selectString, function(err,results){
 		if(err) throw err;
 		res.send(results);
 	});

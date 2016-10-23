@@ -8,13 +8,15 @@
 
  
  $("#searchEmployees").click(function(e) {
-	 var searchText = document.getElementById("searchText").value;
-	 var searchOption = document.getElementById("searchOption").value;
+	 var searchTextvalue = document.getElementById("searchText").value;
+	 var searchOptionValue = document.getElementById("searchOption").value;
+	 var searchText;
+	 var searchOption;
     $.ajax({
         dataType: 'json',
-        type: "GET",
+        type: "POST",
         url: '/searchEmployees',
-		data: {searchText : 'text', searchOption : 'option'},
+		data: {searchText : searchTextvalue, searchOption : searchOptionValue},
         context: this,
         success: function (json){
 			console.log("Searching Employees");
