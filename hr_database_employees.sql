@@ -30,6 +30,7 @@ CREATE TABLE `employees` (
   `title` varchar(100) DEFAULT NULL,
   `department` varchar(100) DEFAULT NULL,
   `salary` int(11) DEFAULT NULL,
+  `salaryBool` boolean DEFAULT NULL,
   `phoneNum` varchar(10) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
   `address` varchar(250) DEFAULT NULL,
