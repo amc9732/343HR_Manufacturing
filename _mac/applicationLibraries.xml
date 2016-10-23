@@ -1,0 +1,50 @@
+<application>
+  <component name="libraryTable">
+    <library name="groovy-2.4.7">
+      <CLASSES>
+        <root url="jar:///usr/local/opt/groovy/libexec/lib/ant-1.9.4.jar!/" />
+        <root url="jar:///usr/local/opt/groovy/libexec/lib/ant-antlr-1.9.4.jar!/" />
+        <root url="jar:///usr/local/opt/groovy/libexec/lib/ant-junit-1.9.4.jar!/" />
+        <root url="jar:///usr/local/opt/groovy/libexec/lib/ant-launcher-1.9.4.jar!/" />
+        <root url="jar:///usr/local/opt/groovy/libexec/lib/bsf-2.4.0.jar!/" />
+        <root url="jar:///usr/local/opt/groovy/libexec/lib/commons-cli-1.2.jar!/" />
+        <root url="jar:///usr/local/opt/groovy/libexec/lib/commons-logging-1.2.jar!/" />
+        <root url="jar:///usr/local/opt/groovy/libexec/lib/gpars-1.2.1.jar!/" />
+        <root url="jar:///usr/local/opt/groovy/libexec/lib/groovy-2.4.7.jar!/" />
+        <root url="jar:///usr/local/opt/groovy/libexec/lib/groovy-ant-2.4.7.jar!/" />
+        <root url="jar:///usr/local/opt/groovy/libexec/lib/groovy-bsf-2.4.7.jar!/" />
+        <root url="jar:///usr/local/opt/groovy/libexec/lib/groovy-console-2.4.7.jar!/" />
+        <root url="jar:///usr/local/opt/groovy/libexec/lib/groovy-docgenerator-2.4.7.jar!/" />
+        <root url="jar:///usr/local/opt/groovy/libexec/lib/groovy-groovydoc-2.4.7.jar!/" />
+        <root url="jar:///usr/local/opt/groovy/libexec/lib/groovy-groovysh-2.4.7.jar!/" />
+        <root url="jar:///usr/local/opt/groovy/libexec/lib/groovy-jmx-2.4.7.jar!/" />
+        <root url="jar:///usr/local/opt/groovy/libexec/lib/groovy-json-2.4.7.jar!/" />
+        <root url="jar:///usr/local/opt/groovy/libexec/lib/groovy-jsr223-2.4.7.jar!/" />
+        <root url="jar:///usr/local/opt/groovy/libexec/lib/groovy-nio-2.4.7.jar!/" />
+        <root url="jar:///usr/local/opt/groovy/libexec/lib/groovy-servlet-2.4.7.jar!/" />
+        <root url="jar:///usr/local/opt/groovy/libexec/lib/groovy-sql-2.4.7.jar!/" />
+        <root url="jar:///usr/local/opt/groovy/libexec/lib/groovy-swing-2.4.7.jar!/" />
+        <root url="jar:///usr/local/opt/groovy/libexec/lib/groovy-templates-2.4.7.jar!/" />
+        <root url="jar:///usr/local/opt/groovy/libexec/lib/groovy-test-2.4.7.jar!/" />
+        <root url="jar:///usr/local/opt/groovy/libexec/lib/groovy-testng-2.4.7.jar!/" />
+        <root url="jar:///usr/local/opt/groovy/libexec/lib/groovy-xml-2.4.7.jar!/" />
+        <root url="jar:///usr/local/opt/groovy/libexec/lib/hamcrest-core-1.3.jar!/" />
+        <root url="jar:///usr/local/opt/groovy/libexec/lib/ivy-2.4.0.jar!/" />
+        <root url="jar:///usr/local/opt/groovy/libexec/lib/jansi-1.11.jar!/" />
+        <root url="jar:///usr/local/opt/groovy/libexec/lib/jcommander-1.47.jar!/" />
+        <root url="jar:///usr/local/opt/groovy/libexec/lib/jline-2.12.jar!/" />
+        <root url="jar:///usr/local/opt/groovy/libexec/lib/jsp-api-2.0.jar!/" />
+        <root url="jar:///usr/local/opt/groovy/libexec/lib/jsr166y-1.7.0.jar!/" />
+        <root url="jar:///usr/local/opt/groovy/libexec/lib/junit-4.12.jar!/" />
+        <root url="jar:///usr/local/opt/groovy/libexec/lib/multiverse-core-0.7.0.jar!/" />
+        <root url="jar:///usr/local/opt/groovy/libexec/lib/qdox-1.12.1.jar!/" />
+        <root url="jar:///usr/local/opt/groovy/libexec/lib/servlet-api-2.4.jar!/" />
+        <root url="jar:///usr/local/opt/groovy/libexec/lib/testng-6.8.13.jar!/" />
+        <root url="jar:///usr/local/opt/groovy/libexec/lib/xmlpull-1.1.3.1.jar!/" />
+        <root url="jar:///usr/local/opt/groovy/libexec/lib/xstream-1.4.7.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+  </component>
+</application>

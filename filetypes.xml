@@ -1,0 +1,18 @@
+<application>
+  <component name="CommunityFileTypes" version="11">
+    <ignoreFiles list="CVS;SCCS;RCS;rcs;.DS_Store;.svn;.pyc;.pyo;*.pyc;*.pyo;.git;*.hprof;_svn;.hg;*.lib;*~;__pycache__;.bundle;*.rbc;" />
+    <extensionMap>
+      <mapping ext="jspx" type="XML" />
+      <mapping ext="tagx" type="XML" />
+    </extensionMap>
+  </component>
+  <component name="FileTypeManager" version="17">
+    <extensionMap>
+      <mapping ext="ftl" type="Native" />
+      <mapping pattern="Trace" type="PLAIN_TEXT" />
+      <mapping pattern="asd" type="PLAIN_TEXT" />
+      <mapping pattern="adminLogin" type="PLAIN_TEXT" />
+      <mapping pattern="k" type="PLAIN_TEXT" />
+    </extensionMap>
+  </component>
+</application>
