@@ -6,15 +6,19 @@
  *
  */
 
- $("#displayEmployees").click(function(e) {
+ 
+ $("#searchEmployees").click(function(e) {
+	 var searchText = document.getElementById("searchText").value;
+	 var searchOption = document.getElementById("searchOption").value;
     $.ajax({
         dataType: 'json',
         type: "GET",
-        url: '/showEmployees',
+        url: '/searchEmployees',
+		data: {searchText : 'text', searchOption : 'option'},
         context: this,
         success: function (json){
+			console.log("Searching Employees");
             var tableContent = '';
-
             $.each(json, function(key, value){
                 tableContent += '<tr>'
                 tableContent += '<td>' + value.fullName + '</td>';

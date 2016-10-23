@@ -33,7 +33,26 @@
 	<div class="container">
 		<div class="jumbotron">
 			<h2 class="email">Welcome!</h2>
-			<button id="displayEmployee" onclick="displayEmployees" type="button" class="btn btn-secondary">Refresh</button>
+			<div class="col-md-2">
+				<button id="displayEmployees" type="button" class="btn btn-secondary">Refresh</button>
+			</div>
+			<div class="col-md-4">
+				<div class="input-group">
+					<input id="searchText" type="text" value="" class="form-control" aria-label="...">
+					<span class="input-group-btn">
+						<button id="searchEmployees" class="btn btn-default" type="button">Search</button>
+					</span>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<select id="searchOption" class="form-control">
+					<option value="Name">Name</option>
+					<option value="Email">Email</option>
+					<option value="Title">Title</option>
+					<option value="Department">Department</option>
+					<option value="Status">Status</option>
+				</select>
+			</div>
 			<table id="displayTable" class="table table-bordered">
 				<tr>
 					<th>Name</th>
@@ -53,4 +72,5 @@
   </body>
   <script type="text/javascript" src="../node_modules/jquery/dist/jquery.js"></script>
   <script type="text/javascript" src="../entries/displayEmployees.js"></script>
+  <script type="text/javascript" src="../entries/searchEmployees.js"></script>
 </html>

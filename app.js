@@ -88,6 +88,23 @@ app.get('/showEmployees', function(req, res){
 
 });
 
+app.get('/searchEmployees', function(req, res){
+	if(authenticated){
+		console.log("Testing Search Employees");
+		var searchOption = req.body.searchOption;
+		console.log(req.body);
+		console.log(searchOption);
+		connection.query('SELECT * FROM hr_database.employees', function(err,results){
+		if(err) throw err;
+		res.send(results);
+	});
+	}
+	else{
+		res.sendFile('notloggedin.html', {'root' :__dirname + '/templates'})
+	}
+
+});
+
 app.get('/showLogoutSuccess',function(req,res){
 	
 	res.sendFile('logoutsuccess.html',{'root':__dirname + '/templates'})
