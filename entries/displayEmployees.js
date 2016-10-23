@@ -17,9 +17,15 @@
 
             $.each(json, function(key, value){
                 tableContent += '<tr>'
+                tableContent += '<td>' + value.fullName + '</td>';
                 tableContent += '<td>' + value.email + '</td>';
-                tableContent += '<td>' + value.pass + '</td>';
-                tableContent += '</tr>'
+                tableContent += '<td>' + value.title + '</td>';
+				tableContent += '<td>' + value.department + '</td>';
+				tableContent += '<td>' + value.salary + '</td>';
+				tableContent += '<td>' + value.superiors + '</td>';
+				tableContent += '<td>' + value.subordinates + '</td>';
+				tableContent += '<td>' + value.stat + '</td>';
+				tableContent += '</tr>'
             });
 
             $('#displayTable').append(tableContent);

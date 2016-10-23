@@ -5,8 +5,8 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "testpassword",
-  port: 3306
+  password: "test",
+  port: 3308
 });
 var bodyParser = require('body-parser');
 app.use(bodyParser.json()); // for parsing application/json
@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 	
 //connection.connect();
 
-connection.query('SELECT * from mydb.mytable1', function(err, rows, fields) {
+connection.query('SELECT * from hr_database.employees', function(err, rows, fields) {
   if (!err)
     console.log('The solution is: ', rows);
   else
@@ -74,7 +74,7 @@ app.get('/loggedin',function(req,res){
 app.get('/showEmployees', function(req, res){
 	//res.send("Test");
 	if(authenticated){
-		connection.query('SELECT * FROM human_resources.employees', function(err,results){
+		connection.query('SELECT * FROM hr_database.employees', function(err,results){
 		if(err) throw err;
 		console.log('Test value', results);
 		var string=JSON.stringify(results);
