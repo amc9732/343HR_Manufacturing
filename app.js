@@ -5,13 +5,8 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
   host: "localhost",
   user: "root",
-<<<<<<< HEAD
   password: "testpassword",
   port: 3306
-=======
-  password: "test",
-  port: 3308
->>>>>>> 2868c58672c6946f56ee9c058f3ce926f94dd298
 });
 var bodyParser = require('body-parser');
 app.use(bodyParser.json()); // for parsing application/json
