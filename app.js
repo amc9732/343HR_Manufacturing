@@ -5,8 +5,8 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "",
-  port: 3306
+  password: "test",
+  port: 3308
 });
 var bodyParser = require('body-parser');
 app.use(bodyParser.json()); // for parsing application/json
@@ -114,7 +114,9 @@ app.get('/showLogoutSuccess',function(req,res){
 app.post('/myaction', function(req, res) {
 	console.log('req.body');
 	console.log(req.body);
-	var record = {email: req.body.email, pass: req.body.pass};
+	var record = {fullName:req.body.fullName, email:req.body.email, pass:req.body.pass, 
+		title:req.body.title, department:req.body.title, salary:req.body.salary, 
+		phoneNum:req.body.phoneNum, stat:req.body.stat, address: req.body.address};
 
 	//connection.connect();
 	connection.query('INSERT INTO hr_database.employees SET ?', record, function(err,res){
