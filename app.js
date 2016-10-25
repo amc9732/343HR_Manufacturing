@@ -115,7 +115,7 @@ app.post('/myaction', function(req, res) {
 	console.log('req.body');
 	console.log(req.body);
 	var record = {fullName:req.body.fullName, email:req.body.email, pass:req.body.pass, 
-		title:req.body.title, department:req.body.title, salary:req.body.salary, 
+		title:req.body.title, department:req.body.searchOption, salary:req.body.salary, 
 		phoneNum:req.body.phoneNum, stat:req.body.stat, address: req.body.address};
 
 	//connection.connect();
