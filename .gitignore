@@ -3,6 +3,7 @@ logs
 *.log
 npm-debug.log*
 .idea/
+343HR_Manufacturing.iml
 
 # Runtime data
 pids
