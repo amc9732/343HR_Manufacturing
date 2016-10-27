@@ -30,13 +30,12 @@
 				context: this,
 				success: function (json){
 					var tableContent = '';
-					$.each(json, function(key, value){
-						tempValue = Math.round((salaryValue / 52) * 100) / 100
-						console.log(value.id)
+					$.each(json, function(key, val){
+						tempValue = (Math.round((salaryValue / 52) * 100) / 100) + val;
 						tableContent += '<tr>'
 						tableContent += '<td>' + employeeID + '</td>'
 						tableContent += '<td>' + salaryValue + '</td>'
-						tableContent += '<td>' + value.commission + '</td>'
+						tableContent += '<td>' + val + '</td>'
 						tableContent += '<td>' + tempValue + '</td>';
 						tableContent += '</tr>'
 					});

@@ -5,8 +5,8 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "test",
-  port: 3308
+  password: "",
+  port: 3306
 });
 var bodyParser = require('body-parser');
 app.use(bodyParser.json()); // for parsing application/json
@@ -93,11 +93,8 @@ app.get('/revenue/employee/?:id', function(req, res){
 	if(authenticated){
 		//This functionality is stubbed out. The real API call will go to the sales silo.
 		// API Call currently returns 200 (dollars) representing total commission sales
-		console.log("commission here");
-		testData = { 'commission' : 200};
-		console.log("JSON", testData);
+		testData = {commission:200};
 		var string=JSON.stringify(testData);
-		console.log("String", string);
 		res.json(testData);
 	}
 	else{
