@@ -7,7 +7,7 @@
  */
 
 // Quick fix to delete old entries when hitting refresh button.
-var displayTableHtml = "<tbody><tr><th>Name</th><th>Email</th><th>Title</th><th>Department</th><th>Salary</th><th>Superiors</th><th>Subordinates</th><th>Status</th></tr></tbody>";
+var displayTableHtml = "<tbody><tr><th>Name</th><th>Email</th><th>Title</th><th>Department</th><th>Salary</th><th>Superiors</th><th>Status</th></tr></tbody>";
 
 $(document).ready(function(){
     displayEmployees();
@@ -37,7 +37,6 @@ function displayEmployees(){
                 tableContent += '<td>' + value.department + '</td>';
                 tableContent += '<td>' + value.salary + '</td>';
                 tableContent += '<td>' + value.superiors + '</td>';
-                tableContent += '<td>' + value.subordinates + '</td>';
                 tableContent += '<td>' + value.stat + '</td>';
                 tableContent += '</tr>'
             });
@@ -75,7 +74,6 @@ function displayEmployees(){
  				tableContent += '<td>' + value.department + '</td>';
  				tableContent += '<td>' + value.salary + '</td>';
  				tableContent += '<td>' + value.superiors + '</td>';
- 				tableContent += '<td>' + value.subordinates + '</td>';
  				tableContent += '<td>' + value.stat + '</td>';
  				tableContent += '</tr>'
              });

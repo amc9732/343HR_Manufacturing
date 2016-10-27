@@ -33,8 +33,7 @@ CREATE TABLE `employees` (
   `phoneNum` varchar(10) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
   `address` varchar(250) DEFAULT NULL,
-  `superiors` varchar(500) DEFAULT NULL,
-  `subordinates` varchar(500) DEFAULT NULL,
+  `superiors` varchar(500) DEFAULT 'None',
   `stat` varchar(100) DEFAULT 'Employed',
   `pass` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -48,11 +47,11 @@ CREATE TABLE `employees` (
 
 LOCK TABLES `employees` WRITE;
 /*!40000 ALTER TABLE `employees` DISABLE KEYS */;
-INSERT INTO `employees` (`id`,`fullName`,`title`,`department`,`salary`,`phoneNum`,`email`,`address`,`superiors`,`subordinates`,`stat`,`pass`) VALUES (1,'Maranda DeStefano','HR Employee','Human Resources',50,'5555555555','mxd1117@rit.edu','123 RIT Lane',NULL,NULL,'Employed','test');
-INSERT INTO `employees` (`id`,`fullName`,`title`,`department`,`salary`,`phoneNum`,`email`,`address`,`superiors`,`subordinates`,`stat`,`pass`) VALUES (2,'Austin Cowen','HR Manager','Human Resources',50,'2222222222','amc9732@rit.edu','456 RIT Lane',NULL,NULL,'Employed','test');
-INSERT INTO `employees` (`id`,`fullName`,`title`,`department`,`salary`,`phoneNum`,`email`,`address`,`superiors`,`subordinates`,`stat`,`pass`) VALUES (3,'Austin Gardener','HR Employee','Human Resources',50,'1111111111','atg5281@rit.edu','789 RIT Lane',NULL,NULL,'Employed','test');
-INSERT INTO `employees` (`id`,`fullName`,`title`,`department`,`salary`,`phoneNum`,`email`,`address`,`superiors`,`subordinates`,`stat`,`pass`) VALUES (4,'Austin Wolff','HR Employee','Human Resources',50,'3333333333','aw6273@rit.edu','147 RIT Lane',NULL,NULL,'Employed','test');
-INSERT INTO `employees` (`id`,`fullName`,`title`,`department`,`salary`,`phoneNum`,`email`,`address`,`superiors`,`subordinates`,`stat`,`pass`) VALUES (5,'Josh Tobin','HR Employee','Human Resources',50,'4444444444','jrt5475@rit.edu','258 RIT Lane',NULL,NULL,'Employed','test');
+INSERT INTO `employees` (`id`,`fullName`,`title`,`department`,`salary`,`phoneNum`,`email`,`address`,`superiors`,`stat`,`pass`) VALUES (1,'Maranda DeStefano','HR Employee','Human Resources',50,'5555555555','mxd1117@rit.edu','123 RIT Lane','None','Employed','test');
+INSERT INTO `employees` (`id`,`fullName`,`title`,`department`,`salary`,`phoneNum`,`email`,`address`,`superiors`,`stat`,`pass`) VALUES (2,'Austin Cowen','HR Manager','Human Resources',50,'2222222222','amc9732@rit.edu','456 RIT Lane','None','Employed','test');
+INSERT INTO `employees` (`id`,`fullName`,`title`,`department`,`salary`,`phoneNum`,`email`,`address`,`superiors`,`stat`,`pass`) VALUES (3,'Austin Gardener','HR Employee','Human Resources',50,'1111111111','atg5281@rit.edu','789 RIT Lane','None','Employed','test');
+INSERT INTO `employees` (`id`,`fullName`,`title`,`department`,`salary`,`phoneNum`,`email`,`address`,`superiors`,`stat`,`pass`) VALUES (4,'Austin Wolff','HR Employee','Human Resources',50,'3333333333','aw6273@rit.edu','147 RIT Lane','None','Employed','test');
+INSERT INTO `employees` (`id`,`fullName`,`title`,`department`,`salary`,`phoneNum`,`email`,`address`,`superiors`,`stat`,`pass`) VALUES (5,'Josh Tobin','HR Employee','Human Resources',50,'4444444444','jrt5475@rit.edu','258 RIT Lane','None','Employed','test');
 /*!40000 ALTER TABLE `employees` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -69,8 +68,7 @@ SET
 `phoneNum` = <{phoneNum: }>,
 `email` = <{email: }>,
 `address` = <{address: }>,
-`superiors` = <{superiors: }>,
-`subordinates` = <{subordinates: }>,
+`superiors` = <{superiors: None}>,
 `stat` = <{stat: Employed}>,
 `pass` = <{pass: }>
 WHERE `id` = <{expr}>;
@@ -91,8 +89,7 @@ SET
 `phoneNum` = <{phoneNum: }>,
 `email` = <{email: }>,
 `address` = <{address: }>,
-`superiors` = <{superiors: }>,
-`subordinates` = <{subordinates: }>,
+`superiors` = <{superiors: None}>,
 `stat` = <{stat: Employed}>,
 `pass` = <{pass: }>
 WHERE `id` = <{expr}>;
