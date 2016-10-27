@@ -53,6 +53,28 @@
 					<option value="Accounting">Accounting</option>
 					<option value="Support">Customer Support</option>
 				</select>
+				<select id='searchOption' name = 'searchOption' class='form-control'>
+					<option value="Superiors">Superiors</option>
+					
+					<?php
+
+					$username = "root";
+					$password = "testpassword";
+					$hostname = "localhost";
+	
+					$dbhandle = mysql_connect($hostname, $username, $password) or die("Unable to connect to MySQL");
+					$selected = mysql_select_db("hr_database", $dbhandle) or die("Could not select examples");
+						
+					$query = "SELECT fullName FROM employees";
+	
+					$result = mysql_query($query);
+		
+					while ($row = mysql_fetch_array($result)) {
+						echo "<option value =" . $row{'fullName'} . ">" . $row{'fullName'} . "</option>";
+					}
+					?>
+		
+				</select>
 				<label for="pass" class="sr-only">Phone Number</label>
                 <input type="PhoneNumber" id="phoneNum" class="form-control" name="PhoneNum" placeholder="Phone Number" required="" maxlength='10'>
                 <label for="pass" class="sr-only">Home Address</label>
