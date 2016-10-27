@@ -5,8 +5,8 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "testpassword",
-  port: 3306
+  password: "test",
+  port: 3308
 });
 var bodyParser = require('body-parser');
 app.use(bodyParser.json()); // for parsing application/json
@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 
 connection.query('SELECT * from hr_database.employees', function(err, rows, fields) {
   if (!err)
-    console.log('The solution is: ', rows);
+    console.log('Connection Successful');
   else
     console.log('Error while performing Query.');
 });
@@ -71,14 +71,45 @@ app.get('/loggedin',function(req,res){
 	
 });
 
+app.get('/calculateSalary', function(req,res){
+	res.sendFile('calculateSalary.html',{'root': __dirname + '/templates'});
+});
+
+app.get('/paycheck/?:id', function(req, res){
+	if(authenticated){
+		var selectString = 'SELECT * FROM hr_database.employees WHERE id = "'+req.params.id+'" ';
+		connection.query(selectString, function(err,results){
+		if(err) throw err;
+		res.send(results);
+	});
+	}
+	else{
+		res.sendFile('notloggedin.html', {'root' :__dirname + '/templates'})
+	}
+
+});
+
+app.get('/revenue/employee/?:id', function(req, res){
+	if(authenticated){
+		//This functionality is stubbed out. The real API call will go to the sales silo.
+		// API Call currently returns 200 (dollars) representing total commission sales
+		console.log("commission here");
+		testData = { 'commission' : 200};
+		console.log("JSON", testData);
+		var string=JSON.stringify(testData);
+		console.log("String", string);
+		res.json(testData);
+	}
+	else{
+		res.sendFile('notloggedin.html', {'root' :__dirname + '/templates'})
+	}
+
+});
+
 app.get('/showEmployees', function(req, res){
-	//res.send("Test");
 	if(authenticated){
 		connection.query('SELECT * FROM hr_database.employees', function(err,results){
 		if(err) throw err;
-		console.log('Test value', results);
-		var string=JSON.stringify(results);
-		console.log('Stringy', string);
 		res.send(results);
 	});
 	}
