@@ -1,15 +1,15 @@
-# 343HR_Manufacturing
+# 343HumanResources
 Repository for SWEN 343 HR and Manufacturing Group
 
 ## Installation
 1) Clone the above repository.
 ```
-git clone https://github.com/amc9732/343HR_Manufacturing.git
+git clone https://github.com/amc9732/343HumanResources.git
 ```
 
 2) Navigate to the project repository and install the dependencies.
 ```
-cd 343HR_Manufacturing
+cd 343HumanResources
 npm install
 ```
 
