@@ -1,6 +1,7 @@
 <application>
   <component name="FileTypeManager" version="17">
     <extensionMap>
+      <mapping ext="mst" type="HTML" />
       <mapping ext="ftl" type="Native" />
       <mapping ext="ejs" type="Native" />
       <mapping pattern="Trace" type="PLAIN_TEXT" />
