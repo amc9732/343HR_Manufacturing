@@ -5,8 +5,8 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "testpassword",
-  port: 3306
+  password: "test",
+  port: 3308
 });
 var bodyParser = require('body-parser');
 app.use(bodyParser.json()); // for parsing application/json
@@ -114,6 +114,44 @@ app.get('/showEmployees', function(req, res){
 		res.sendFile('notloggedin.html', {'root' :__dirname + '/templates'})
 	}
 
+});
+
+app.get('/verifyCustomerSupportEID/?:eid', function(req, res){
+	var selectString = 'SELECT department FROM hr_database.employees WHERE id = "'+req.params.eid+'" ';
+	connection.query(selectString, function(err,results){
+		if(err) throw err;
+		var string = JSON.stringify(results);
+		console.log(string);
+		if(string == '[{"department":"Human Resources"}]' ){
+			testData = {bool:True};
+			var string=JSON.stringify(testData);
+			res.json(testData);
+		}
+		else{
+			testData = {bool:False};
+			var string=JSON.stringify(testData);
+			res.json(testData);
+		}
+	});
+});
+
+app.get('/verifySalesEID/?:eid', function(req, res){
+	var selectString = 'SELECT department FROM hr_database.employees WHERE id = "'+req.params.eid+'" ';
+	connection.query(selectString, function(err,results){
+		if(err) throw err;
+		var string = JSON.stringify(results);
+		console.log(string);
+		if(string == '[{"department":"Sales"}]' ){
+			testData = {bool:True};
+			var string=JSON.stringify(testData);
+			res.json(testData);
+		}
+		else{
+			testData = {bool:False};
+			var string=JSON.stringify(testData);
+			res.json(testData);
+		}
+	});
 });
 
 app.post('/searchEmployees', function(req, res){
