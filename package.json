@@ -1,5 +1,5 @@
 {
-  "name": "343HR_Manufacturing",
+  "name": "343HumanResources",
   "version": "1.0.0",
   "description": "Node.js and MySQL app for SWEN 343",
   "main": "app.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/amc9732/343HR_Manufacturing"
+    "url": "https://github.com/amc9732/343HumanResources"
   },
   "author": "amc9732",
   "license": "UNLICENSED",
@@ -21,7 +21,7 @@
     "node-mysql": "^0.4.2"
   },
   "bugs": {
-    "url": "https://github.com/amc9732/343HR_Manufacturing/issues"
+    "url": "https://github.com/amc9732/343HumanResources/issues"
   },
-  "homepage": "https://github.com/amc9732/343HR_Manufacturing"
+  "homepage": "https://github.com/amc9732/343HumanResources"
 }

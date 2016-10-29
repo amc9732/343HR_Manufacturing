@@ -33,8 +33,7 @@ CREATE TABLE `employees` (
   `phoneNum` varchar(10) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
   `address` varchar(250) DEFAULT NULL,
-  `superiors` varchar(500) DEFAULT NULL,
-  `subordinates` varchar(500) DEFAULT NULL,
+  `superiors` varchar(500) DEFAULT 'None',
   `stat` varchar(100) DEFAULT 'Employed',
   `pass` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -48,17 +47,49 @@ CREATE TABLE `employees` (
 
 LOCK TABLES `employees` WRITE;
 /*!40000 ALTER TABLE `employees` DISABLE KEYS */;
-INSERT INTO `employees` VALUES (1,'Maranda DeStefano','HR Manager','Human Resources',50,'5555555555','mxd1117@rit.edu','123 RIT Lane',NULL,NULL,'Employed','password');
+INSERT INTO `employees` (`id`,`fullName`,`title`,`department`,`salary`,`phoneNum`,`email`,`address`,`superiors`,`stat`,`pass`) VALUES (1,'Maranda DeStefano','HR Employee','Human Resources',50,'5555555555','mxd1117@rit.edu','123 RIT Lane','None','Employed','test');
+INSERT INTO `employees` (`id`,`fullName`,`title`,`department`,`salary`,`phoneNum`,`email`,`address`,`superiors`,`stat`,`pass`) VALUES (2,'Austin Cowen','HR Manager','Human Resources',50,'2222222222','amc9732@rit.edu','456 RIT Lane','None','Employed','test');
+INSERT INTO `employees` (`id`,`fullName`,`title`,`department`,`salary`,`phoneNum`,`email`,`address`,`superiors`,`stat`,`pass`) VALUES (3,'Austin Gardener','HR Employee','Human Resources',50,'1111111111','atg5281@rit.edu','789 RIT Lane','None','Employed','test');
+INSERT INTO `employees` (`id`,`fullName`,`title`,`department`,`salary`,`phoneNum`,`email`,`address`,`superiors`,`stat`,`pass`) VALUES (4,'Austin Wolff','HR Employee','Human Resources',50,'3333333333','aw6273@rit.edu','147 RIT Lane','None','Employed','test');
+INSERT INTO `employees` (`id`,`fullName`,`title`,`department`,`salary`,`phoneNum`,`email`,`address`,`superiors`,`stat`,`pass`) VALUES (5,'Josh Tobin','HR Employee','Human Resources',50,'4444444444','jrt5475@rit.edu','258 RIT Lane','None','Employed','test');
 /*!40000 ALTER TABLE `employees` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40014 SET UUPDATE `hr_database`.`employees`
+SET
+`id` = <{id: }>,
+`fullName` = <{fullName: }>,
+`title` = <{title: }>,
+`department` = <{department: }>,
+`salary` = <{salary: }>,
+`phoneNum` = <{phoneNum: }>,
+`email` = <{email: }>,
+`address` = <{address: }>,
+`superiors` = <{superiors: None}>,
+`stat` = <{stat: Employed}>,
+`pass` = <{pass: }>
+WHERE `id` = <{expr}>;
+NIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2016-10-22 18:19:34
+UPDATE `hr_database`.`employees`
+SET
+`id` = <{id: }>,
+`fullName` = <{fullName: }>,
+`title` = <{title: }>,
+`department` = <{department: }>,
+`salary` = <{salary: }>,
+`phoneNum` = <{phoneNum: }>,
+`email` = <{email: }>,
+`address` = <{address: }>,
+`superiors` = <{superiors: None}>,
+`stat` = <{stat: Employed}>,
+`pass` = <{pass: }>
+WHERE `id` = <{expr}>;

@@ -19,21 +19,48 @@
   </head>
 
   <body>
-		<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
-				<ul class="nav pull-left">
-					<li><a href="/" class="btn btn-lg btn-primary btn-block">KennUWare</a></li>
-					<li><a href="#" class="btn btn-lg btn-default active">Sign-In</a></li>
-					<li><a href="/showAddUser" class="btn btn-lg btn-default active">Add User</a></li>
-					<li><a href="/showLogoutSuccess" class="btn btn-lg btn-default active">Log Out</a></li>
-				</ul>
+			<ul class="nav pull-left">
+				<li><a href="/showSignInPage" class="btn btn-lg btn-primary btn-block">KennUWare</a></li>
+				<li><a href="/showModifyUsers" class="btn btn-lg btn-default active">Modify Users</a></li>
+				<li><a href="/calculateSalary" class="btn btn-lg btn-default active">Salary</a></li>
+				<li><a href="/showLogoutSuccess" class="btn btn-lg btn-default active">Log Out</a></li>
+			</ul>
 		</div>	
 	</div>
 			
 	<div class="container">
 		<div class="jumbotron">
 			<h2 class="email">Welcome!</h2>
-			<button id="displayEmployee" onclick="displayEmployees" type="button" class="btn btn-secondary">Refresh</button>
+			<div class="row">
+				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+					<button id="displayEmployees" type="button" class="btn btn-secondary">Show All Employees</button>
+				</div>
+				<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+					<div class="input-group">
+						<input id="searchText" type="text" value="" class="form-control" aria-label="...">
+						<span class="input-group-btn">
+							<button id="searchEmployees" class="btn btn-default" type="button">Search</button>
+						</span>
+					</div>
+				</div>
+				<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+					<p>for</p>
+				</div>
+				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+					<select id="searchOption" class="form-control">
+						<option value="fullName">Name</option>
+						<option value="email">Email</option>
+						<option value="title">Title</option>
+						<option value="department">Department</option>
+						<option value="stat">Status</option>
+						<option value="superiors">Superiors</option>
+					</select>
+				<p></p>
+				</div>
+			</div>
+			
 			<table id="displayTable" class="table table-bordered">
 				<tr>
 					<th>Name</th>
@@ -42,7 +69,6 @@
 					<th>Department</th>
 					<th>Salary</th>
 					<th>Superiors</th>
-					<th>Subordinates</th>
 					<th>Status</th>
 				</tr>
 			</table>
@@ -52,5 +78,6 @@
 	
   </body>
   <script type="text/javascript" src="../node_modules/jquery/dist/jquery.js"></script>
-  <script type="text/javascript" src="../entries/displayEmployees.js"></script>
+  <script type="text/javascript" src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../entries/loggedIn.js"></script>
 </html>
