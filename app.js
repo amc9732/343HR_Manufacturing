@@ -5,8 +5,8 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "test",
-  port: 3308
+  password: "",
+  port: 3306
 });
 var bodyParser = require('body-parser');
 app.use(bodyParser.json()); // for parsing application/json
@@ -72,7 +72,12 @@ app.get('/loggedin',function(req,res){
 });
 
 app.get('/calculateSalary', function(req,res){
-	res.sendFile('calculateSalary.html',{'root': __dirname + '/templates'});
+	if(authenticated){
+		res.sendFile('calculateSalary.html',{'root': __dirname + '/templates'});
+	}
+	else{
+		res.sendFile('notloggedin.html', {'root' :__dirname + '/templates'})
+	}
 });
 
 app.get('/paycheck/?:id', function(req, res){
