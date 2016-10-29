@@ -2,6 +2,7 @@
   <component name="FileTypeManager" version="17">
     <extensionMap>
       <mapping ext="ftl" type="Native" />
+      <mapping ext="ejs" type="Native" />
       <mapping pattern="Trace" type="PLAIN_TEXT" />
       <mapping pattern="asd" type="PLAIN_TEXT" />
       <mapping pattern="adminLogin" type="PLAIN_TEXT" />
