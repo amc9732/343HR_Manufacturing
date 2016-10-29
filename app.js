@@ -72,7 +72,12 @@ app.get('/loggedin',function(req,res){
 });
 
 app.get('/calculateSalary', function(req,res){
-	res.sendFile('calculateSalary.html',{'root': __dirname + '/templates'});
+	if(authenticated){
+		res.sendFile('calculateSalary.html',{'root': __dirname + '/templates'});
+	}
+	else{
+		res.sendFile('notloggedin.html', {'root' :__dirname + '/templates'})
+	}
 });
 
 app.get('/paycheck/?:id', function(req, res){
