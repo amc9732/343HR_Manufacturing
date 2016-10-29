@@ -1,8 +1,8 @@
 /**
- * displayEmployees entry file
+ * calculateSalary entry file
  *
  * This is the file that is loaded into the browser
- * when a user navigates to the loggedIn page
+ * when a user navigates to the calculateSalary page
  *
  */
  
