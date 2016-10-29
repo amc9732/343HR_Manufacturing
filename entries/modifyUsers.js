@@ -1,8 +1,8 @@
 /**
- * addUser entry file
+ * modifyUsers entry file
  *
  * This is the file that is loaded into the browser
- * when a user navigates to the addUser page
+ * when a user navigates to the modifyUsers page
  *
  */
 
