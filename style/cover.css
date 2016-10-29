@@ -13,3 +13,7 @@ body{
 .nav>li {
   float: left;
 }
+
+.btn-group .bootstrap-select .form-control {
+    width:350px;
+}

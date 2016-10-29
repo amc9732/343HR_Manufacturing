@@ -16,27 +16,6 @@
 
     <!-- Custom styles for this template -->
     <link href="../style/cover.css" rel="stylesheet">
-    <link href="../style/signin.css" rel="stylesheet">
-    <script type="text/javascript" src="../script/jquery-1.11.2.js"></script>
-
-    <script type="text/javascript">
-      $(function(){
-        $('#btnSignIn').click(function(evt){
-          evt.preventDefault();
-          $.ajax({
-            url: '/signin',
-            type:'POST',
-            success:function(response){
-              console.log(response);
-            },
-            error:function(error){
-              console.log(error);
-            }
-          })
-        })
-      })
-     
-    </script>
 
   </head>
  <body>
@@ -61,7 +40,7 @@
 					<label for="pass" class="sr-only">New Password</label>
 					<input type="password" id="pass" class="form-control" name="pass" placeholder="Password" required="" style=width:350px>  
 					<p></p>
-					<button id="btnSignIn" class="btn btn-lg btn-primary btn-block" type="submit" style=width:350px>Log in</button>
+					<button id="btnSignIn" class="btn btn-lg btn-primary btn-block" type="submit" style=width:150px>Log in</button>
 				</form>
 		</div>
 	</div>
