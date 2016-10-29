@@ -1,15 +1,15 @@
-# 343HR_Manufacturing
+# 343HumanResources
 Repository for SWEN 343 HR and Manufacturing Group
 
 ## Installation
 1) Clone the above repository.
 ```
-git clone https://github.com/amc9732/343HR_Manufacturing.git
+git clone https://github.com/amc9732/343HumanResources.git
 ```
 
 2) Navigate to the project repository and install the dependencies.
 ```
-cd 343HR_Manufacturing
+cd 343HumanResources
 npm install
 ```
 
@@ -36,7 +36,7 @@ git commit -m This is an example commit message
 git push origin myExampleBranch
 ```
 
-#### When you finish work on your branch, or want to update Master with the work you have done:
+### When you finish work on your branch, or want to update Master with the work you have done:
 ```
 git checkout master
 git pull origin master
@@ -45,12 +45,12 @@ git push origin master
 ```
 *Let teammates know you merged into Master, and have them follow the next step
 
-#### Whenever somebody else merges into Master:
+### Whenever somebody else merges into Master:
 ```
 git fetch origin
 git rebase origin/master
 ```
 
-#### If you run into merge conflicts:
+### If you run into merge conflicts:
 Most IDEs have a merge conflict GUI tools you can use.
 You can also use ```git mergetool -y``` from terminal/cmd
