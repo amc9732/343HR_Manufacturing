@@ -17,11 +17,12 @@ $('#addUser').click(function (e) {
     $("#editType").html("<h2>New User</h2>")
     clearForm();
 
+    $("#ModifyUser").attr("action", "/addNewUser");
+
     $('#addUserBtn').show();
-    $('editUserBtn').hide();
+    $('#editUserBtn').hide();
 
     $("#ModifyUser").show();
-
 });
 
 $('#searchEmployees').click(function (e) {
@@ -29,10 +30,12 @@ $('#searchEmployees').click(function (e) {
     $("#editType").html("<h2>Update User</h2>")
     clearForm();
 
-    $('#addUserBtn').hide();
-    $('editUserBtn').show();
+    $("#ModifyUser").attr("action", "/updateEmployee");
 
-     var searchTextvalue = $('#empoyeeList').value;
+    $('#addUserBtn').hide();
+    $('#editUserBtn').show();
+
+     var searchTextvalue = document.getElementById('employeeList').value;
      var searchOptionValue = "fullName";
      var searchText;
      var searchOption;
@@ -44,22 +47,20 @@ $('#searchEmployees').click(function (e) {
          context: this,
          success: function (json){
             console.log("Searching Employees");
-             var tableContent = '';
-             //$('#displayTable').html(displayTableHtml);
 
              $.each(json, function(key, value){
-                 tableContent += '<tr>'
-                 tableContent += '<td>' + value.fullName + '</td>';
-                 tableContent += '<td>' + value.email + '</td>';
-                 tableContent += '<td>' + value.title + '</td>';
-                 tableContent += '<td>' + value.department + '</td>';
-                 tableContent += '<td>' + value.salary + '</td>';
-                 tableContent += '<td>' + value.superiors + '</td>';
-                 tableContent += '<td>' + value.stat + '</td>';
-                 tableContent += '</tr>'
-             });
 
-             $('#displayTable').append(tableContent);
+                 $("#fullName").val(value.fullName);
+                 $("#email").val(value.email);
+                 $("#pass").val(value.pass);
+                 $("#title").val(value.title);
+                 $("#selectDepartment").val(value.department);
+                 $("#superiorList").val(value.superiors);
+                 $("#phoneNum").val(value.phoneNum);
+                 $("#address").val(value.address);
+                 $("#salary").val(value.salary);
+                 $("#status").val(value.stat);
+             });
          },
          error: function(error){
              console.log(error);

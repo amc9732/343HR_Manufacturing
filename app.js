@@ -5,7 +5,7 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "testpassword",
+  password: "",
   port: 3306
 });
 var bodyParser = require('body-parser');
@@ -73,7 +73,7 @@ app.get('/loggedin',function(req,res){
     if(authenticated){
         res.sendFile('loggedin.html',{'root': __dirname + '/templates'});
     } else {
-    		res.sendFile('notloggedin.html', {'root' :__dirname + '/templates'})
+    	res.sendFile('notloggedin.html', {'root' :__dirname + '/templates'})
     }
 });
 
@@ -182,6 +182,7 @@ app.post('/searchEmployees', function(req, res){
 
 });
 
+
 app.get('/showLogoutSuccess',function(req,res){
 
 	res.sendFile('logoutsuccess.html',{'root':__dirname + '/templates'})
@@ -208,6 +209,26 @@ app.post('/addNewUser', function(req, res) {
 	//connection.end();
 
 	res.end();
+});
+
+app.post('/updateEmployee', function(req, res){
+    console.log('req.body');
+    console.log(req.body);
+
+    var record = {fullName:req.body.fullName, email:req.body.email, pass:req.body.pass,
+        title:req.body.title, department:req.body.selectDepartment, superiors:req.body.superiorList, salary:req.body.salary,
+        phoneNum:req.body.PhoneNum, stat:req.body.status, address: req.body.address};
+
+
+    connection.query('UPDATE hr_database.employees SET ? WHERE fullName=' + fullName, record, function(err,res){
+        if(err) throw err;
+        console.log('Last record insert id:', res.insertId);
+    });
+
+    res.redirect('/message');
+    //connection.end();
+
+    res.end();
 });
 
 
