@@ -234,7 +234,7 @@ app.post('/updateEmployee', function(req, res){
         console.log('Last record insert id:', res.insertId);
     });
 
-    res.redirect('/updateUserMessage');
+    res.redirect('/editUserMessage');
     //connection.end();
 
     res.end();
@@ -249,6 +249,7 @@ app.post('/deleteEmployee', function(req, res){
         if(err) throw err;
         console.log('Last record insert id:', res.insertId);
     });
+
     //connection.end();
 
     res.end();

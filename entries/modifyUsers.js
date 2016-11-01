@@ -87,15 +87,17 @@ $('#deleteUserBtn').click(function (e){
              url: '/deleteEmployee',
              data: {userToDelete : userToDeleteValue},
              context: this,
-             success: function (json){
-                window.location.href = "/deleteUserMessage";
+             success: function (response){
+                window.location = "/deleteUserMessage"
              },
              error: function(error){
                  console.log(error);
              }
 
         });
+        window.location = "/deleteUserMessage";
     }
+
 });
 
 /**
