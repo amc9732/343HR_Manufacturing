@@ -39,3 +39,14 @@ jspm_packages
 .node_repl_history
 
 diff.xml
+
+#randomThings
+_mac/
+baseRefactoring.xml
+debugger.xml
+filetypes.xml
+ignore.xml
+IntelliLang.xml
+javaeeExternalResources.xml
+mavenVersion.xml
+web-browsers.xml
