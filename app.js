@@ -65,8 +65,16 @@ app.get('/showModifyUsers',function(req,res){
 
 });
 
-app.get('/message',function(req,res){
-    res.sendFile('message.html',{'root': __dirname + '/templates'});
+app.get('/addUserMessage',function(req,res){
+    res.sendFile('addUserMessage.html',{'root': __dirname + '/templates/successPages'});
+});
+
+app.get('/editUserMessage',function(req,res){
+    res.sendFile('editUserMessage.html',{'root': __dirname + '/templates/successPages'});
+});
+
+app.get('/deleteUserMessage',function(req,res){
+    res.sendFile('deleteUserMessage.html',{'root': __dirname + '/templates/successPages'});
 });
 
 app.get('/loggedin',function(req,res){
@@ -205,7 +213,7 @@ app.post('/addNewUser', function(req, res) {
 
 	});
 
-	res.redirect('/message');
+	res.redirect('/addUserMessage');
 	//connection.end();
 
 	res.end();
@@ -214,18 +222,33 @@ app.post('/addNewUser', function(req, res) {
 app.post('/updateEmployee', function(req, res){
     console.log('req.body');
     console.log(req.body);
+    var userToEdit = req.body.userToEdit
 
     var record = {fullName:req.body.fullName, email:req.body.email, pass:req.body.pass,
         title:req.body.title, department:req.body.selectDepartment, superiors:req.body.superiorList, salary:req.body.salary,
         phoneNum:req.body.PhoneNum, stat:req.body.status, address: req.body.address};
 
 
-    connection.query('UPDATE hr_database.employees SET ? WHERE fullName=' + fullName, record, function(err,res){
+    connection.query('UPDATE hr_database.employees SET ? WHERE fullName=?', [record, userToEdit], function(err,res){
         if(err) throw err;
         console.log('Last record insert id:', res.insertId);
     });
 
-    res.redirect('/message');
+    res.redirect('/updateUserMessage');
+    //connection.end();
+
+    res.end();
+});
+
+app.post('/deleteEmployee', function(req, res){
+    console.log('req.body');
+    console.log(req.body);
+    var userToDelete = req.body.userToDelete;
+
+    connection.query('DELETE FROM hr_database.employees WHERE fullName=?', userToDelete, function(err,res){
+        if(err) throw err;
+        console.log('Last record insert id:', res.insertId);
+    });
     //connection.end();
 
     res.end();

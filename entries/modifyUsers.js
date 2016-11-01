@@ -21,6 +21,7 @@ $('#addUser').click(function (e) {
 
     $('#addUserBtn').show();
     $('#editUserBtn').hide();
+    $('#deleteUserBtn').hide();
 
     $("#ModifyUser").show();
 });
@@ -34,11 +35,13 @@ $('#searchEmployees').click(function (e) {
 
     $('#addUserBtn').hide();
     $('#editUserBtn').show();
+    $('#deleteUserBtn').show();
 
      var searchTextvalue = document.getElementById('employeeList').value;
      var searchOptionValue = "fullName";
      var searchText;
      var searchOption;
+     $("#userToEdit").attr("value", searchTextvalue);
      $.ajax({
          dataType: 'json',
          type: "POST",
@@ -69,6 +72,30 @@ $('#searchEmployees').click(function (e) {
       });
       $("#ModifyUser").show();
 
+});
+
+
+$('#deleteUserBtn').click(function (e){
+    e.preventDefault();
+    var userToDeleteValue = document.getElementById('userToEdit').value;
+    var userToDelete;
+
+    if (confirm("Delete user " + userToDeleteValue + "?")) {
+        $.ajax({
+             dataType: 'json',
+             type: "POST",
+             url: '/deleteEmployee',
+             data: {userToDelete : userToDeleteValue},
+             context: this,
+             success: function (json){
+                window.location.href = "/deleteUserMessage";
+             },
+             error: function(error){
+                 console.log(error);
+             }
+
+        });
+    }
 });
 
 /**
