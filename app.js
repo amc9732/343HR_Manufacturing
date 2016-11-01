@@ -12,7 +12,7 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
-	
+
 //connection.connect();
 
 connection.query('SELECT * from hr_database.employees', function(err, rows, fields) {
@@ -35,12 +35,14 @@ app.use('/style',  express.static(__dirname + '/style'));
 
 app.use('/entries',  express.static(__dirname + '/entries'));
 
+app.engine('.html', require('ejs').__express);
+
 app.get('/',function(req,res){
     res.sendFile('home.html',{'root': __dirname + '/templates'});
 });
 
 
-app.get('/showSignInPage',function(req,res){
+app.get('/home',function(req,res){
 	if (!authenticated){
 		res.sendFile('signin.html',{'root': __dirname + '/templates'});
 	}
@@ -49,12 +51,13 @@ app.get('/showSignInPage',function(req,res){
 	}
 
 });
-app.get('/showSignInPageretry',function(req,res){
+app.get('/homeretry',function(req,res){
     res.sendFile('signinretry.html',{'root': __dirname + '/templates'});
 });
-app.get('/showAddUser',function(req,res){
+
+app.get('/showModifyUsers',function(req,res){
 	if(authenticated){
-		res.sendFile('addUser.html',{'root':__dirname + '/templates'})
+		res.sendFile('modifyUsers.html',{'root':__dirname + '/templates'})
 	}
 	else{
 		res.sendFile('notloggedin.html', {'root' :__dirname + '/templates'})
@@ -67,8 +70,11 @@ app.get('/message',function(req,res){
 });
 
 app.get('/loggedin',function(req,res){
-    res.sendFile('loggedin.html',{'root': __dirname + '/templates'});
-	
+    if(authenticated){
+        res.sendFile('loggedin.html',{'root': __dirname + '/templates'});
+    } else {
+    	res.sendFile('notloggedin.html', {'root' :__dirname + '/templates'})
+    }
 });
 
 app.get('/calculateSalary', function(req,res){
@@ -79,6 +85,7 @@ app.get('/calculateSalary', function(req,res){
 		res.sendFile('notloggedin.html', {'root' :__dirname + '/templates'})
 	}
 });
+
 
 app.get('/paycheck/?:id', function(req, res){
 	if(authenticated){
@@ -175,31 +182,53 @@ app.post('/searchEmployees', function(req, res){
 
 });
 
+
 app.get('/showLogoutSuccess',function(req,res){
-	
+
 	res.sendFile('logoutsuccess.html',{'root':__dirname + '/templates'})
 	authenticated = false;
-	
+
 });
 
-app.post('/myaction', function(req, res) {
+app.post('/addNewUser', function(req, res) {
 	console.log('req.body');
 	console.log(req.body);
-	var record = {fullName:req.body.fullName, email:req.body.email, pass:req.body.pass, 
-		title:req.body.title, department:req.body.searchOption, salary:req.body.salary, 
-		phoneNum:req.body.phoneNum, stat:req.body.stat, address: req.body.address};
 
-	//connection.connect();
+	var record = {fullName:req.body.fullName, email:req.body.email, pass:req.body.pass,
+		title:req.body.title, department:req.body.selectDepartment, superiors:req.body.superiorList, salary:req.body.salary,
+		phoneNum:req.body.PhoneNum, stat:req.body.status, address: req.body.address};
+
+
 	connection.query('INSERT INTO hr_database.employees SET ?', record, function(err,res){
 	  	if(err) throw err;
 		console.log('Last record insert id:', res.insertId);
-		
+
 	});
 
 	res.redirect('/message');
 	//connection.end();
 
 	res.end();
+});
+
+app.post('/updateEmployee', function(req, res){
+    console.log('req.body');
+    console.log(req.body);
+
+    var record = {fullName:req.body.fullName, email:req.body.email, pass:req.body.pass,
+        title:req.body.title, department:req.body.selectDepartment, superiors:req.body.superiorList, salary:req.body.salary,
+        phoneNum:req.body.PhoneNum, stat:req.body.status, address: req.body.address};
+
+
+    connection.query('UPDATE hr_database.employees SET ? WHERE fullName=' + fullName, record, function(err,res){
+        if(err) throw err;
+        console.log('Last record insert id:', res.insertId);
+    });
+
+    res.redirect('/message');
+    //connection.end();
+
+    res.end();
 });
 
 
@@ -218,8 +247,8 @@ app.post('/verifyuser', function(req,res){
 			res.redirect('/loggedin');
 			authenticated = true;
 	    } else {
-        	res.redirect('/showSignInPageretry');
-        }
+        	res.redirect('/homeretry');
+     }
 });
 
 });

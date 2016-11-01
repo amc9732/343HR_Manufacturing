@@ -21,16 +21,15 @@
   <body>
 		<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
-				<ul class="nav pull-left">
-					<li><a href="/" class="btn btn-lg btn-primary btn-block">KennUWare</a></li>
-					<li><a href="/showSignInPage" class="btn btn-lg btn-default active">Sign-In</a></li>
-					<li><a href="/showAddUser" class="btn btn-lg btn-default active">Add User</a></li>
-					<li><a href="#" class="btn btn-lg btn-default active">Salary</a></li>
-					<li><a href="/showLogoutSuccess" class="btn btn-lg btn-default active">Log Out</a></li>
-				</ul>
-		</div>	
+			<ul class="nav pull-left">
+				<li><a href="/home" class="btn btn-lg btn-primary btn-block">KennUWare</a></li>
+				<li><a href="/showModifyUsers" class="btn btn-lg btn-default active">Modify Users</a></li>
+				<li><a href="#" class="btn btn-lg btn-default active">Salary</a></li>
+				<li><a href="/showLogoutSuccess" class="btn btn-lg btn-default active">Log Out</a></li>
+			</ul>
+		</div>
 	</div>
-			
+
 	<div class="container">
 		<div class="jumbotron">
 			<h2 class="email">Calculate Payroll</h2>
@@ -43,7 +42,7 @@
 					</span>
 				</div>
 				<p></p>
-			</div>	
+			</div>
 			<table id="displayTable" class="table table-bordered">
 				<tr>
 					<th>Employee ID</th>
@@ -55,7 +54,7 @@
 			<div id="displayDiv"></div>
 		</div>
 	</div>
-	
+
   </body>
   <script type="text/javascript" src="../node_modules/jquery/dist/jquery.js"></script>
   <script type="text/javascript" src="../entries/calculateSalary.js"></script>
