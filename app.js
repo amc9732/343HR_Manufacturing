@@ -35,12 +35,14 @@ app.use('/style',  express.static(__dirname + '/style'));
 
 app.use('/entries',  express.static(__dirname + '/entries'));
 
+app.engine('.html', require('ejs').__express);
+
 app.get('/',function(req,res){
     res.sendFile('home.html',{'root': __dirname + '/templates'});
 });
 
 
-app.get('/showSignInPage',function(req,res){
+app.get('/home',function(req,res){
 	if (!authenticated){
 		res.sendFile('signin.html',{'root': __dirname + '/templates'});
 	}
@@ -49,7 +51,7 @@ app.get('/showSignInPage',function(req,res){
 	}
 
 });
-app.get('/showSignInPageretry',function(req,res){
+app.get('/homeretry',function(req,res){
     res.sendFile('signinretry.html',{'root': __dirname + '/templates'});
 });
 
@@ -63,15 +65,23 @@ app.get('/showModifyUsers',function(req,res){
 
 });
 
-app.get('/message',function(req,res){
-    res.sendFile('message.html',{'root': __dirname + '/templates'});
+app.get('/addUserMessage',function(req,res){
+    res.sendFile('addUserMessage.html',{'root': __dirname + '/templates/successPages'});
+});
+
+app.get('/editUserMessage',function(req,res){
+    res.sendFile('editUserMessage.html',{'root': __dirname + '/templates/successPages'});
+});
+
+app.get('/deleteUserMessage',function(req,res){
+    res.sendFile('deleteUserMessage.html',{'root': __dirname + '/templates/successPages'});
 });
 
 app.get('/loggedin',function(req,res){
     if(authenticated){
         res.sendFile('loggedin.html',{'root': __dirname + '/templates'});
     } else {
-    		res.sendFile('notloggedin.html', {'root' :__dirname + '/templates'})
+    	res.sendFile('notloggedin.html', {'root' :__dirname + '/templates'})
     }
 });
 
@@ -83,6 +93,7 @@ app.get('/calculateSalary', function(req,res){
 		res.sendFile('notloggedin.html', {'root' :__dirname + '/templates'})
 	}
 });
+
 
 app.get('/paycheck/?:id', function(req, res){
 	if(authenticated){
@@ -179,6 +190,7 @@ app.post('/searchEmployees', function(req, res){
 
 });
 
+
 app.get('/showLogoutSuccess',function(req,res){
 
 	res.sendFile('logoutsuccess.html',{'root':__dirname + '/templates'})
@@ -186,24 +198,61 @@ app.get('/showLogoutSuccess',function(req,res){
 
 });
 
-app.post('/myaction', function(req, res) {
+app.post('/addNewUser', function(req, res) {
 	console.log('req.body');
 	console.log(req.body);
-	var record = {fullName:req.body.fullName, email:req.body.email, pass:req.body.pass,
-		title:req.body.title, department:req.body.searchOption, salary:req.body.salary,
-		phoneNum:req.body.phoneNum, stat:req.body.stat, address: req.body.address};
 
-	//connection.connect();
+	var record = {fullName:req.body.fullName, email:req.body.email, pass:req.body.pass,
+		title:req.body.title, department:req.body.selectDepartment, superiors:req.body.superiorList, salary:req.body.salary,
+		phoneNum:req.body.PhoneNum, stat:req.body.status, address: req.body.address};
+
+
 	connection.query('INSERT INTO hr_database.employees SET ?', record, function(err,res){
 	  	if(err) throw err;
 		console.log('Last record insert id:', res.insertId);
 
 	});
 
-	res.redirect('/message');
+	res.redirect('/addUserMessage');
 	//connection.end();
 
 	res.end();
+});
+
+app.post('/updateEmployee', function(req, res){
+    console.log('req.body');
+    console.log(req.body);
+    var userToEdit = req.body.userToEdit
+
+    var record = {fullName:req.body.fullName, email:req.body.email, pass:req.body.pass,
+        title:req.body.title, department:req.body.selectDepartment, superiors:req.body.superiorList, salary:req.body.salary,
+        phoneNum:req.body.PhoneNum, stat:req.body.status, address: req.body.address};
+
+
+    connection.query('UPDATE hr_database.employees SET ? WHERE fullName=?', [record, userToEdit], function(err,res){
+        if(err) throw err;
+        console.log('Last record insert id:', res.insertId);
+    });
+
+    res.redirect('/editUserMessage');
+    //connection.end();
+
+    res.end();
+});
+
+app.post('/deleteEmployee', function(req, res){
+    console.log('req.body');
+    console.log(req.body);
+    var userToDelete = req.body.userToDelete;
+
+    connection.query('DELETE FROM hr_database.employees WHERE fullName=?', userToDelete, function(err,res){
+        if(err) throw err;
+        console.log('Last record insert id:', res.insertId);
+    });
+
+    //connection.end();
+
+    res.end();
 });
 
 
@@ -222,8 +271,8 @@ app.post('/verifyuser', function(req,res){
 			res.redirect('/loggedin');
 			authenticated = true;
 	    } else {
-        	res.redirect('/showSignInPageretry');
-        }
+        	res.redirect('/homeretry');
+     }
 });
 
 });
