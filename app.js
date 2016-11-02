@@ -250,6 +250,21 @@ app.get('/showLogoutSuccess',function(req,res){
 	authenticated = false;
 });
 
+app.get('/humanresources/expenses', function(req,res){
+    if(authenticated){
+        var selectString = 'SELECT SUM(salary) as TOTAL_COSTS FROM hr_database.employees WHERE department="Human Resources"';
+        connection.query(selectString, function(err,results){
+            if(err) throw err;
+            var totalExpenses = 0;
+
+
+            res.send(results);
+        });
+    } else {
+        res.sendFile('notloggedin.html', {'root' :__dirname + '/templates'})
+    }
+});
+
 app.post('/addNewUser', function(req, res) {
 	console.log('req.body');
 	console.log(req.body);
