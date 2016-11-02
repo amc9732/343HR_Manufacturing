@@ -39,6 +39,9 @@ app.engine('.html', require('ejs').__express);
 
 app.get('/',function(req,res){
     res.sendFile('home.html',{'root': __dirname + '/templates'});
+    if (authenticated){
+    	res.sendFile('loggedin.html', {'root':__dirname + '/templates'});
+    }
 });
 
 
@@ -97,22 +100,38 @@ app.get('/calculateSalary', function(req,res){
 
 app.get('/paycheck/?:id', function(req, res){
 	if(authenticated){
-		var selectString = 'SELECT * FROM hr_database.employees WHERE id = "'+req.params.id+'" ';
-		connection.query(selectString, function(err,results){
-		if(err) throw err;
-		res.send(results);
-	});
+	    var employeeID = req.params.id;
+	    if (employeeID > 0){
+            var selectString = 'SELECT salary FROM hr_database.employees WHERE id = "' + req.params.id + '" ';
+            connection.query(selectString, function(err,results){
+                if(err) throw err;
+                if (results == ""){
+                    res.send('Employee with ID: "' + employeeID + '" does not exist.')
+                } else {
+                    res.send(results);
+                }
+            });
+        } else {
+            res.send("Not a valid EmployeeID");
+        }
 	}
 	else{
 		res.sendFile('notloggedin.html', {'root' :__dirname + '/templates'})
 	}
-
 });
 
 app.get('/revenue/employee/?:id', function(req, res){
 	if(authenticated){
 		//This functionality is stubbed out. The real API call will go to the sales silo.
 		// API Call currently returns 200 (dollars) representing total commission sales
+		var employeeID = req.params.id;
+		if (employeeID > 0 && employeeID < 10){
+		    testData = {commission:200};
+		} else if (employeeID > 10 && employeeID < 20){
+		    testData = {commission:50};
+		} else {
+		    testData = {commission:0};
+		}
 		testData = {commission:200};
 		var string=JSON.stringify(testData);
 		res.json(testData);
@@ -123,17 +142,27 @@ app.get('/revenue/employee/?:id', function(req, res){
 
 });
 
+
 app.get('/showEmployees', function(req, res){
 	if(authenticated){
-		connection.query('SELECT * FROM hr_database.employees', function(err,results){
-		if(err) throw err;
-		res.send(results);
-	});
+        connection.query('SELECT * FROM hr_database.employees', function(err,results){
+            if(err) throw err;
+            res.send(results);
+	    });
 	}
 	else{
 		res.sendFile('notloggedin.html', {'root' :__dirname + '/templates'})
 	}
 
+});
+
+
+app.get('/getEmployeeDepartment/?:eid', function(req, res){
+    var selectString = 'SELECT department FROM hr_database.employees WHERE id = "'+req.params.eid+'" ';
+    connection.query(selectString, function(err,results){
+        if(err) throw err;
+        res.send(results);
+    });
 });
 
 app.get('/verifyCustomerSupportEID/?:eid', function(req, res){
@@ -192,10 +221,8 @@ app.post('/searchEmployees', function(req, res){
 
 
 app.get('/showLogoutSuccess',function(req,res){
-
 	res.sendFile('logoutsuccess.html',{'root':__dirname + '/templates'})
 	authenticated = false;
-
 });
 
 app.post('/addNewUser', function(req, res) {
