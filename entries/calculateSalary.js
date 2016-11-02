@@ -24,52 +24,40 @@
                 $.each(json, function(key, value){
                     salaryValue = value.salary;
                 });
-                if (isNaN(salaryValue)){
-                    displayAlert(salaryValue);
-                    return false;
-                } else {
-                    $.each(json, function(key, value){
-                        salaryValue = value.salary;
-                    });
-                    console.log("here");
-                    $.ajax({
-                        dataType: 'json',
-                        type: "GET",
-                        url: '/revenue/employee/' + employeeID,
-                        data: {eID : employeeID},
-                        context: this,
-                        success: function (json){
-                            var tableContent = '';
-                            $.each(json, function(key, val){
-                                tempValue = (Math.round((salaryValue / 52) * 100) / 100) + val;
-                                tableContent += '<tr>'
-                                tableContent += '<td>' + employeeID + '</td>'
-                                tableContent += '<td>' + salaryValue + '</td>'
-                                tableContent += '<td>' + val + '</td>'
-                                tableContent += '<td>' + tempValue + '</td>';
-                                tableContent += '</tr>'
-                            });
+                console.log("here");
+                $.ajax({
+                    dataType: 'json',
+                    type: "GET",
+                    url: '/revenue/employee/' + employeeID,
+                    data: {eID : employeeID},
+                    context: this,
+                    success: function (json){
+                        var tableContent = '';
+                        $.each(json, function(key, val){
+                            tempValue = (Math.round((salaryValue / 52) * 100) / 100) + val;
+                            tableContent += '<tr>'
+                            tableContent += '<td>' + employeeID + '</td>'
+                            tableContent += '<td>' + salaryValue + '</td>'
+                            tableContent += '<td>' + val + '</td>'
+                            tableContent += '<td>' + tempValue + '</td>';
+                            tableContent += '</tr>'
+                        });
 
-                            $('#displayTable').append(tableContent);
-                        },
-                        error: function(error){
-                            console.log(error);
-                        }
-                     });
+                        $('#displayTable').append(tableContent);
+                    },
+                    error: function(error){
+                        console.log(error);
+                    }
+                });
 
-                 }
-                },
-            error: function(error){
-                console.log(error);
-            }
+             },
+             error: function(xhr, status, error) {
+                var err = xhr.responseText;
+                alert(err);
+             }
 
          });
      } else {
-        displayAlert("Enter a valid Employee ID");
+        alert("Enter a valid Employee ID");
      }
  });
-
- function displayAlert (message){
-    debugger;
-    alert(message);
- }

@@ -35,8 +35,6 @@ app.use('/style',  express.static(__dirname + '/style'));
 
 app.use('/entries',  express.static(__dirname + '/entries'));
 
-app.engine('.html', require('ejs').__express);
-
 app.get('/',function(req,res){
     res.sendFile('home.html',{'root': __dirname + '/templates'});
     if (authenticated){
@@ -105,8 +103,9 @@ app.get('/paycheck/?:id', function(req, res){
             var selectString = 'SELECT salary FROM hr_database.employees WHERE id = "' + req.params.id + '" ';
             connection.query(selectString, function(err,results){
                 if(err) throw err;
+                console.log(results);
                 if (results == ""){
-                    res.send('Employee with ID: "' + employeeID + '" does not exist.')
+                    res.send('Employee with ID: ' + employeeID + ' does not exist.')
                 } else {
                     res.send(results);
                 }
@@ -130,9 +129,8 @@ app.get('/revenue/employee/?:id', function(req, res){
 		} else if (employeeID > 10 && employeeID < 20){
 		    testData = {commission:50};
 		} else {
-		    testData = {commission:0};
+		    testData = {message:"That user does not exist."};
 		}
-		testData = {commission:200};
 		var string=JSON.stringify(testData);
 		res.json(testData);
 	}
