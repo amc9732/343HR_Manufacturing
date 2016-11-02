@@ -63,6 +63,7 @@
 			<div id="editType"></div>
 			<label for="pass" class="sr-only">Employee's Name</label>
 			<input type="name" id="fullName" class="form-control" name="fullName" placeholder="Name" required="" maxlength='100' style=width:350px>
+			<input type="hidden" class="form-control" id="userToEdit" name="userToEdit" value="" />
 			<p></p>
 			<label for="email" class="sr-only">Your Email address</label>
 			<input type="email" id="email" name="email" class="form-control" placeholder="Email address" required="" autofocus="" maxlength='100' style=width:350px>
@@ -102,6 +103,7 @@
 
 			<button id="addUserBtn" class="btn btn-lg btn-primary btn-block" type="submit" style="display:none; width:350px;">Add User</button>
 			<button id="editUserBtn" class="btn btn-lg btn-primary btn-block" type="submit" style="display:none; width:350px;">Update User</button>
+			<button id="deleteUserBtn" class="btn btn-lg btn-primary btn-block" type="button" style="display:none; width:350px;">Delete User</button>
 			<button id="btnCancel" class="btn btn-lg btn-primary btn-block" type="button" style=width:350px>Cancel</button>
 		</center>
 	</form>
