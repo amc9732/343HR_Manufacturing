@@ -1,0 +1,2279 @@
+{
+	"id": "41d4afc9-a370-5453-49eb-b9cedd4de988",
+	"name": "hr_api_testing",
+	"allTests": [],
+	"timestamp": 1479140338747,
+	"collection_id": "dad8deed-0eab-09fa-922e-225276f172c0",
+	"folder_id": 0,
+	"target_type": "collection",
+	"environment_id": "0",
+	"data": [],
+	"delay": 0,
+	"count": 1,
+	"collection": {
+		"id": "dad8deed-0eab-09fa-922e-225276f172c0",
+		"name": "hr_api_testing",
+		"description": "",
+		"order": [],
+		"folders": [
+			{
+				"id": "ca1da314-25c9-d3dc-9621-b091cfd125db",
+				"name": "Commission API \"/revenue/employee/(eid)\"",
+				"description": "API to get commision for an employee",
+				"write": true,
+				"order": [
+					"fd54f905-4222-99fd-4346-cc7df385c13b",
+					"0f6cd34d-5cad-0c71-d063-47e74dc66f9b",
+					"2e59285e-a41c-dc08-83a5-1624cb036510",
+					"b49af8a2-5df3-b8a7-adf8-43b882307ae7"
+				],
+				"collection": "dad8deed-0eab-09fa-922e-225276f172c0",
+				"owner": "433150",
+				"collection_id": "dad8deed-0eab-09fa-922e-225276f172c0"
+			},
+			{
+				"id": "99a21ad5-98ae-e0a4-4a30-aa58f8bb6438",
+				"name": "Paycheck API: /paycheck/?:id",
+				"description": "API that returns the salary of some employee",
+				"write": true,
+				"order": [
+					"15b7b517-2142-aa15-d900-684221c099c8",
+					"adbb4fd3-bd9f-fe15-a29d-ea3d42cf9e8a",
+					"56da4813-469e-1b54-09ac-e8b05e01e2aa",
+					"f7b1eff9-1daf-36a3-acdc-58b34870df8c"
+				],
+				"collection": "dad8deed-0eab-09fa-922e-225276f172c0",
+				"owner": "433150",
+				"collection_id": "dad8deed-0eab-09fa-922e-225276f172c0"
+			},
+			{
+				"id": "38743471-ad69-1fbd-c69a-fd2c115a1b01",
+				"name": "Silo Expenses: /humanresources/expenses",
+				"description": "Returns all expenses for HR",
+				"write": true,
+				"order": [
+					"ef2198d1-4eb0-f73f-772a-cd165f204db3"
+				],
+				"collection": "dad8deed-0eab-09fa-922e-225276f172c0",
+				"owner": "433150",
+				"collection_id": "dad8deed-0eab-09fa-922e-225276f172c0"
+			},
+			{
+				"id": "05477e79-c9ee-0cd1-9086-b32a5f99cf72",
+				"name": "Verify Customer Support Employee: /verifyCustomerSupportEID/?:eid",
+				"description": "Returns true if the employee associated with the provided eid works in Customer Support, and false if not.",
+				"write": true,
+				"order": [
+					"2e9668d0-62d0-fa66-15db-bf937438c28c",
+					"29d7027f-8b01-f09a-1ce1-ce3acf8f534f",
+					"7c14ecc4-ba90-874a-796b-f35d3e72b262",
+					"808cf7d0-b737-188a-02a3-7de0ea5c50e3"
+				],
+				"collection": "dad8deed-0eab-09fa-922e-225276f172c0",
+				"owner": "433150",
+				"collection_id": "dad8deed-0eab-09fa-922e-225276f172c0"
+			},
+			{
+				"id": "1c0341c3-2dc9-1188-b27e-668234d6098b",
+				"name": "Verify Employee: /getEmployeeDepartment/?:eID",
+				"description": "Returns the department a user is in, or returns that the eID does not exist or is invalid.",
+				"write": true,
+				"order": [
+					"488a3091-e27b-c4ad-6544-25d2e65ef94c",
+					"06e8d565-67b3-9f5e-8eb1-9e566c88b29a",
+					"9e23bb87-def9-b7d0-c56f-a0a8577fab26",
+					"7cec3f22-5e9a-2f61-0e8f-6a926aa23820",
+					"a41e5353-efb5-0a10-4fd1-756596d05e3b",
+					"f3749fa1-59a0-9c4b-6b6c-2b8976a45395"
+				],
+				"collection": "dad8deed-0eab-09fa-922e-225276f172c0",
+				"owner": "433150",
+				"collection_id": "dad8deed-0eab-09fa-922e-225276f172c0"
+			},
+			{
+				"id": "6347c9b9-c046-194f-9af1-d5e97559a657",
+				"name": "Verify Sales Employee: /verifySalesEID/?:eid",
+				"description": "Returns true if the employee with associated eID is a Sales employee, and returns false otherwise.",
+				"write": true,
+				"order": [
+					"5765b360-0463-19ad-a594-ab7cdca690a9",
+					"2a22ab24-cc0d-00f8-426d-ea34868f1236",
+					"a9ef6c01-1280-0783-41f8-2f9c6849012a",
+					"909dec33-8c10-52f0-49f1-6aa90d79d586"
+				],
+				"collection": "dad8deed-0eab-09fa-922e-225276f172c0",
+				"owner": "433150",
+				"collection_id": "dad8deed-0eab-09fa-922e-225276f172c0"
+			}
+		],
+		"requests": [
+			{
+				"id": "06e8d565-67b3-9f5e-8eb1-9e566c88b29a",
+				"headers": "",
+				"url": "http://vm343d.se.rit.edu:3000/getEmployeeDepartment/1",
+				"pathVariables": {},
+				"preRequestScript": null,
+				"method": "GET",
+				"collectionId": "dad8deed-0eab-09fa-922e-225276f172c0",
+				"data": null,
+				"dataMode": "params",
+				"name": "http://vm343d.se.rit.edu:3000/getEmployeeDepartment/1",
+				"description": "Customer Support currently only saves as \"Support\"",
+				"descriptionFormat": "html",
+				"time": 1478074005413,
+				"version": 2,
+				"responses": [],
+				"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\nvar jsonData = JSON.parse(responseBody);\ntests[\"Returns 'customer support' for an employee in Customer Support\"] = jsonData[0].department === \"Customer Support\";",
+				"currentHelper": "normal",
+				"helperAttributes": {},
+				"folder": "1c0341c3-2dc9-1188-b27e-668234d6098b"
+			},
+			{
+				"id": "0f6cd34d-5cad-0c71-d063-47e74dc66f9b",
+				"headers": "",
+				"url": "http://vm343d.se.rit.edu:3000/revenue/employee/test",
+				"pathVariables": {},
+				"preRequestScript": null,
+				"method": "GET",
+				"collectionId": "dad8deed-0eab-09fa-922e-225276f172c0",
+				"data": null,
+				"dataMode": "params",
+				"name": "http://vm343d.se.rit.edu:3000/revenue/employee/test",
+				"description": "",
+				"descriptionFormat": "html",
+				"time": 1478067405608,
+				"version": 2,
+				"responses": [],
+				"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\nvar jsonData = JSON.parse(responseBody);\ntests[\"Passing eID that does not exist returns invalid\"] = jsonData.message === \"That user does not exist.\";",
+				"currentHelper": "normal",
+				"helperAttributes": {},
+				"folder": "ca1da314-25c9-d3dc-9621-b091cfd125db"
+			},
+			{
+				"id": "15b7b517-2142-aa15-d900-684221c099c8",
+				"headers": "",
+				"url": "http://vm343d.se.rit.edu:3000/paycheck/fail",
+				"pathVariables": {},
+				"preRequestScript": null,
+				"method": "GET",
+				"collectionId": "dad8deed-0eab-09fa-922e-225276f172c0",
+				"data": null,
+				"dataMode": "params",
+				"name": "http://vm343d.se.rit.edu:3000/paycheck/fail",
+				"description": "",
+				"descriptionFormat": "html",
+				"time": 1478067832962,
+				"version": 2,
+				"responses": [],
+				"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\ntests[\"Passing 'fail' as a eID returns 'invalid'\"] = responseBody === \"Not a valid EmployeeID\";",
+				"currentHelper": "normal",
+				"helperAttributes": {},
+				"folder": "99a21ad5-98ae-e0a4-4a30-aa58f8bb6438"
+			},
+			{
+				"id": "29d7027f-8b01-f09a-1ce1-ce3acf8f534f",
+				"headers": "",
+				"url": "http://vm343d.se.rit.edu:3000/verifyCustomerSupportEID/2",
+				"pathVariables": {},
+				"preRequestScript": null,
+				"method": "GET",
+				"collectionId": "dad8deed-0eab-09fa-922e-225276f172c0",
+				"data": null,
+				"dataMode": "params",
+				"name": "http://vm343d.se.rit.edu:3000/verifyCustomerSupportEID/2",
+				"description": "",
+				"descriptionFormat": "html",
+				"time": 1478073126537,
+				"version": 2,
+				"responses": [],
+				"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\ntests[\"False boolean is returned if employee is not Customer Support\"] = responseBody.has('{\"bool\":false}');",
+				"currentHelper": "normal",
+				"helperAttributes": {},
+				"folder": "05477e79-c9ee-0cd1-9086-b32a5f99cf72"
+			},
+			{
+				"id": "2a22ab24-cc0d-00f8-426d-ea34868f1236",
+				"headers": "",
+				"url": "http://vm343d.se.rit.edu:3000/verifySalesEID/5",
+				"pathVariables": {},
+				"preRequestScript": null,
+				"method": "GET",
+				"collectionId": "dad8deed-0eab-09fa-922e-225276f172c0",
+				"data": null,
+				"dataMode": "params",
+				"name": "http://vm343d.se.rit.edu:3000/verifySalesEID/5",
+				"description": "",
+				"descriptionFormat": "html",
+				"time": 1478073504433,
+				"version": 2,
+				"responses": [],
+				"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\ntests[\"True boolean is returned if employee is not Sales\"] = responseBody.has('{\"bool\":true}');",
+				"currentHelper": "normal",
+				"helperAttributes": {},
+				"folder": "6347c9b9-c046-194f-9af1-d5e97559a657"
+			},
+			{
+				"id": "2e59285e-a41c-dc08-83a5-1624cb036510",
+				"headers": "",
+				"url": "http://vm343d.se.rit.edu:3000/revenue/employee/2",
+				"pathVariables": {},
+				"preRequestScript": null,
+				"method": "GET",
+				"collectionId": "dad8deed-0eab-09fa-922e-225276f172c0",
+				"data": null,
+				"dataMode": "params",
+				"name": "http://vm343d.se.rit.edu:3000/revenue/employee/2",
+				"description": "",
+				"descriptionFormat": "html",
+				"time": 1478067488600,
+				"version": 2,
+				"responses": [],
+				"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\nvar jsonData = JSON.parse(responseBody);\ntests[\"Passing eID 2 returns 200\"] = jsonData.commission === 200;",
+				"currentHelper": "normal",
+				"helperAttributes": {},
+				"folder": "ca1da314-25c9-d3dc-9621-b091cfd125db"
+			},
+			{
+				"id": "2e9668d0-62d0-fa66-15db-bf937438c28c",
+				"headers": "",
+				"url": "http://vm343d.se.rit.edu:3000/verifyCustomerSupportEID/jhbjh",
+				"pathVariables": {},
+				"preRequestScript": null,
+				"method": "GET",
+				"collectionId": "dad8deed-0eab-09fa-922e-225276f172c0",
+				"data": null,
+				"dataMode": "params",
+				"name": "http://vm343d.se.rit.edu:3000/verifyCustomerSupportEID/jhbjh",
+				"description": "",
+				"descriptionFormat": "html",
+				"time": 1478072857108,
+				"version": 2,
+				"responses": [],
+				"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\ntests[\"Invalid employee ID returns appropriate message\"] = responseBody.has(\"Not a valid EmployeeID\");",
+				"currentHelper": "normal",
+				"helperAttributes": {},
+				"folder": "05477e79-c9ee-0cd1-9086-b32a5f99cf72"
+			},
+			{
+				"id": "488a3091-e27b-c4ad-6544-25d2e65ef94c",
+				"headers": "",
+				"url": "http://vm343d.se.rit.edu:3000/getEmployeeDepartment/sdfsf",
+				"pathVariables": {},
+				"preRequestScript": null,
+				"method": "GET",
+				"collectionId": "dad8deed-0eab-09fa-922e-225276f172c0",
+				"data": null,
+				"dataMode": "params",
+				"name": "http://vm343d.se.rit.edu:3000/getEmployeeDepartment/sdfsf",
+				"description": "",
+				"descriptionFormat": "html",
+				"time": 1478073877401,
+				"version": 2,
+				"responses": [],
+				"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\ntests[\"Returns invalid if eID provided is not integer > 0\"] = responseBody.has('Not a valid EmployeeID');",
+				"currentHelper": "normal",
+				"helperAttributes": {},
+				"folder": "1c0341c3-2dc9-1188-b27e-668234d6098b"
+			},
+			{
+				"id": "56da4813-469e-1b54-09ac-e8b05e01e2aa",
+				"headers": "",
+				"url": "http://vm343d.se.rit.edu:3000/paycheck/3",
+				"pathVariables": {},
+				"preRequestScript": null,
+				"method": "GET",
+				"collectionId": "dad8deed-0eab-09fa-922e-225276f172c0",
+				"data": null,
+				"dataMode": "params",
+				"name": "http://vm343d.se.rit.edu:3000/paycheck/3",
+				"description": "",
+				"descriptionFormat": "html",
+				"time": 1478068015023,
+				"version": 2,
+				"responses": [],
+				"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\nvar jsonData = JSON.parse(responseBody);\ntests[\"Get salary for eId=3 returns 50\"] = jsonData[0].salary === 50;",
+				"currentHelper": "normal",
+				"helperAttributes": {},
+				"folder": "99a21ad5-98ae-e0a4-4a30-aa58f8bb6438"
+			},
+			{
+				"id": "5765b360-0463-19ad-a594-ab7cdca690a9",
+				"headers": "",
+				"url": "http://vm343d.se.rit.edu:3000/verifySalesEID/234234",
+				"pathVariables": {},
+				"preRequestScript": null,
+				"method": "GET",
+				"collectionId": "dad8deed-0eab-09fa-922e-225276f172c0",
+				"data": null,
+				"dataMode": "params",
+				"name": "http://vm343d.se.rit.edu:3000/verifySalesEID/234234",
+				"description": "",
+				"descriptionFormat": "html",
+				"time": 1478073407590,
+				"version": 2,
+				"responses": [],
+				"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\ntests[\"False boolean is returned if employee does not exist, but ID is an integer > 0\"] = responseBody.has('{\"bool\":false}');",
+				"currentHelper": "normal",
+				"helperAttributes": {},
+				"folder": "6347c9b9-c046-194f-9af1-d5e97559a657"
+			},
+			{
+				"id": "7c14ecc4-ba90-874a-796b-f35d3e72b262",
+				"headers": "",
+				"url": "http://vm343d.se.rit.edu:3000/verifyCustomerSupportEID/1",
+				"preRequestScript": null,
+				"pathVariables": {},
+				"method": "GET",
+				"data": null,
+				"dataMode": "params",
+				"version": 2,
+				"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\ntests[\"False boolean is returned if employee is not Customer Support\"] = responseBody.has('{\"bool\":false}');",
+				"currentHelper": "normal",
+				"helperAttributes": {},
+				"time": 1479140332937,
+				"name": "http://vm343d.se.rit.edu:3000/verifyCustomerSupportEID/1",
+				"description": "CS department is saved incorrectly currently",
+				"collectionId": "dad8deed-0eab-09fa-922e-225276f172c0",
+				"responses": []
+			},
+			{
+				"id": "7cec3f22-5e9a-2f61-0e8f-6a926aa23820",
+				"headers": "",
+				"url": "http://vm343d.se.rit.edu:3000/getEmployeeDepartment/3",
+				"pathVariables": {},
+				"preRequestScript": null,
+				"method": "GET",
+				"collectionId": "dad8deed-0eab-09fa-922e-225276f172c0",
+				"data": null,
+				"dataMode": "params",
+				"name": "http://vm343d.se.rit.edu:3000/getEmployeeDepartment/3",
+				"description": "",
+				"descriptionFormat": "html",
+				"time": 1478074073421,
+				"version": 2,
+				"responses": [],
+				"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\nvar jsonData = JSON.parse(responseBody);\ntests[\"Returns 'Human Resources' for an employee in Human Resources\"] = jsonData[0].department === \"Human Resources\";",
+				"currentHelper": "normal",
+				"helperAttributes": {},
+				"folder": "1c0341c3-2dc9-1188-b27e-668234d6098b"
+			},
+			{
+				"id": "808cf7d0-b737-188a-02a3-7de0ea5c50e3",
+				"headers": "",
+				"url": "http://vm343d.se.rit.edu:3000/verifyCustomerSupportEID/234234",
+				"pathVariables": {},
+				"preRequestScript": null,
+				"method": "GET",
+				"collectionId": "dad8deed-0eab-09fa-922e-225276f172c0",
+				"data": null,
+				"dataMode": "params",
+				"name": "http://vm343d.se.rit.edu:3000/verifyCustomerSupportEID/234234",
+				"description": "CS department is saved incorrectly currently",
+				"descriptionFormat": "html",
+				"time": 1478073234630,
+				"version": 2,
+				"responses": [],
+				"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\ntests[\"False boolean is returned if employee does not exist, but ID is an integer > 0\"] = responseBody.has('{\"bool\":false}');",
+				"currentHelper": "normal",
+				"helperAttributes": {},
+				"folder": "05477e79-c9ee-0cd1-9086-b32a5f99cf72"
+			},
+			{
+				"id": "909dec33-8c10-52f0-49f1-6aa90d79d586",
+				"headers": "",
+				"url": "http://vm343d.se.rit.edu:3000/verifySalesEID/2",
+				"pathVariables": {},
+				"preRequestScript": null,
+				"method": "GET",
+				"collectionId": "dad8deed-0eab-09fa-922e-225276f172c0",
+				"data": null,
+				"dataMode": "params",
+				"name": "http://vm343d.se.rit.edu:3000/verifySalesEID/2",
+				"description": "",
+				"descriptionFormat": "html",
+				"time": 1478073641615,
+				"version": 2,
+				"responses": [],
+				"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\ntests[\"False boolean is returned if employee is not Sales\"] = responseBody.has('{\"bool\":false}');",
+				"currentHelper": "normal",
+				"helperAttributes": {},
+				"folder": "6347c9b9-c046-194f-9af1-d5e97559a657"
+			},
+			{
+				"id": "9e23bb87-def9-b7d0-c56f-a0a8577fab26",
+				"headers": "",
+				"url": "http://vm343d.se.rit.edu:3000/getEmployeeDepartment/2",
+				"pathVariables": {},
+				"preRequestScript": null,
+				"method": "GET",
+				"collectionId": "dad8deed-0eab-09fa-922e-225276f172c0",
+				"data": null,
+				"dataMode": "params",
+				"name": "http://vm343d.se.rit.edu:3000/getEmployeeDepartment/2",
+				"description": "",
+				"descriptionFormat": "html",
+				"time": 1478074042553,
+				"version": 2,
+				"responses": [],
+				"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\nvar jsonData = JSON.parse(responseBody);\ntests[\"Returns 'Manufacturing' for an employee in Manufacturing\"] = jsonData[0].department === \"Manufacturing\";",
+				"currentHelper": "normal",
+				"helperAttributes": {},
+				"folder": "1c0341c3-2dc9-1188-b27e-668234d6098b"
+			},
+			{
+				"id": "a41e5353-efb5-0a10-4fd1-756596d05e3b",
+				"headers": "",
+				"url": "http://vm343d.se.rit.edu:3000/getEmployeeDepartment/5",
+				"pathVariables": {},
+				"preRequestScript": null,
+				"method": "GET",
+				"collectionId": "dad8deed-0eab-09fa-922e-225276f172c0",
+				"data": null,
+				"dataMode": "params",
+				"name": "http://vm343d.se.rit.edu:3000/getEmployeeDepartment/5",
+				"description": "",
+				"descriptionFormat": "html",
+				"time": 1478074102799,
+				"version": 2,
+				"responses": [],
+				"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\nvar jsonData = JSON.parse(responseBody);\ntests[\"Returns 'Sales' for an employee in Sales\"] = jsonData[0].department === \"Sales\";",
+				"currentHelper": "normal",
+				"helperAttributes": {},
+				"folder": "1c0341c3-2dc9-1188-b27e-668234d6098b"
+			},
+			{
+				"id": "a9ef6c01-1280-0783-41f8-2f9c6849012a",
+				"headers": "",
+				"url": "http://vm343d.se.rit.edu:3000/verifySalesEID/jhbjh",
+				"pathVariables": {},
+				"preRequestScript": null,
+				"method": "GET",
+				"collectionId": "dad8deed-0eab-09fa-922e-225276f172c0",
+				"data": null,
+				"dataMode": "params",
+				"name": "http://vm343d.se.rit.edu:3000/verifySalesEID/jhbjh",
+				"description": "",
+				"descriptionFormat": "html",
+				"time": 1478073587120,
+				"version": 2,
+				"responses": [],
+				"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\ntests[\"Invalid employee ID returns appropriate message\"] = responseBody.has(\"Not a valid EmployeeID\");",
+				"currentHelper": "normal",
+				"helperAttributes": {},
+				"folder": "6347c9b9-c046-194f-9af1-d5e97559a657"
+			},
+			{
+				"id": "adbb4fd3-bd9f-fe15-a29d-ea3d42cf9e8a",
+				"headers": "",
+				"url": "http://vm343d.se.rit.edu:3000/paycheck/1",
+				"pathVariables": {},
+				"preRequestScript": null,
+				"method": "GET",
+				"collectionId": "dad8deed-0eab-09fa-922e-225276f172c0",
+				"data": null,
+				"dataMode": "params",
+				"name": "http://vm343d.se.rit.edu:3000/paycheck/1",
+				"description": "",
+				"descriptionFormat": "html",
+				"time": 1478067969485,
+				"version": 2,
+				"responses": [],
+				"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\nvar jsonData = JSON.parse(responseBody);\ntests[\"Get salary for eId=1 returns 50000\"] = jsonData[0].salary === 50000;",
+				"currentHelper": "normal",
+				"helperAttributes": {},
+				"folder": "99a21ad5-98ae-e0a4-4a30-aa58f8bb6438"
+			},
+			{
+				"id": "b49af8a2-5df3-b8a7-adf8-43b882307ae7",
+				"headers": "",
+				"url": "http://vm343d.se.rit.edu:3000/revenue/employee/18",
+				"pathVariables": {},
+				"preRequestScript": null,
+				"method": "GET",
+				"collectionId": "dad8deed-0eab-09fa-922e-225276f172c0",
+				"data": null,
+				"dataMode": "params",
+				"name": "http://vm343d.se.rit.edu:3000/revenue/employee/18",
+				"description": "",
+				"descriptionFormat": "html",
+				"time": 1478067513106,
+				"version": 2,
+				"responses": [],
+				"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\nvar jsonData = JSON.parse(responseBody);\ntests[\"Passing eID 18 returns 50\"] = jsonData.commission === 50;",
+				"currentHelper": "normal",
+				"helperAttributes": {},
+				"folder": "ca1da314-25c9-d3dc-9621-b091cfd125db"
+			},
+			{
+				"id": "ef2198d1-4eb0-f73f-772a-cd165f204db3",
+				"headers": "",
+				"url": "http://vm343d.se.rit.edu:3000/humanresources/expenses",
+				"pathVariables": {},
+				"preRequestScript": null,
+				"method": "GET",
+				"collectionId": "dad8deed-0eab-09fa-922e-225276f172c0",
+				"data": null,
+				"dataMode": "params",
+				"name": "http://vm343d.se.rit.edu:3000/humanresources/expenses",
+				"description": "",
+				"descriptionFormat": "html",
+				"time": 1478075237394,
+				"version": 2,
+				"responses": [],
+				"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\nvar jsonData = JSON.parse(responseBody);\ntests[\"Returns total salary of all employees in Human Resources\"] = jsonData[0].TOTAL_COSTS === 50;",
+				"currentHelper": "normal",
+				"helperAttributes": {},
+				"folder": "38743471-ad69-1fbd-c69a-fd2c115a1b01"
+			},
+			{
+				"id": "f3749fa1-59a0-9c4b-6b6c-2b8976a45395",
+				"headers": "",
+				"url": "http://vm343d.se.rit.edu:3000/getEmployeeDepartment/6",
+				"pathVariables": {},
+				"preRequestScript": null,
+				"method": "GET",
+				"collectionId": "dad8deed-0eab-09fa-922e-225276f172c0",
+				"data": null,
+				"dataMode": "params",
+				"name": "http://vm343d.se.rit.edu:3000/getEmployeeDepartment/6",
+				"description": "",
+				"descriptionFormat": "html",
+				"time": 1478074153706,
+				"version": 2,
+				"responses": [],
+				"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\ntests[\"Returns empty array is employee does not exist\"] = responseBody.has(\"\");",
+				"currentHelper": "normal",
+				"helperAttributes": {},
+				"folder": "1c0341c3-2dc9-1188-b27e-668234d6098b"
+			},
+			{
+				"id": "f7b1eff9-1daf-36a3-acdc-58b34870df8c",
+				"headers": "",
+				"url": "http://vm343d.se.rit.edu:3000/paycheck/6",
+				"pathVariables": {},
+				"preRequestScript": null,
+				"method": "GET",
+				"collectionId": "dad8deed-0eab-09fa-922e-225276f172c0",
+				"data": null,
+				"dataMode": "params",
+				"name": "http://vm343d.se.rit.edu:3000/paycheck/6",
+				"description": "",
+				"descriptionFormat": "html",
+				"time": 1478068120243,
+				"version": 2,
+				"responses": [],
+				"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\ntests[\"Get salary for valid eID that doesn't exist returns detailed message\"] = responseBody.has(\"Employee with ID: 6 does not exist.\");",
+				"currentHelper": "normal",
+				"helperAttributes": {},
+				"folder": "99a21ad5-98ae-e0a4-4a30-aa58f8bb6438"
+			},
+			{
+				"id": "fd54f905-4222-99fd-4346-cc7df385c13b",
+				"headers": "",
+				"url": "http://vm343d.se.rit.edu:3000/revenue/employee/98798",
+				"pathVariables": {},
+				"preRequestScript": null,
+				"method": "GET",
+				"collectionId": "dad8deed-0eab-09fa-922e-225276f172c0",
+				"data": null,
+				"dataMode": "params",
+				"name": "http://vm343d.se.rit.edu:3000/revenue/employee/98798",
+				"description": "",
+				"descriptionFormat": "html",
+				"time": 1478067280125,
+				"version": 2,
+				"responses": [],
+				"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\nvar jsonData = JSON.parse(responseBody);\ntests[\"Passing eID that does not exist returns invalid\"] = jsonData.message === \"That user does not exist.\";",
+				"currentHelper": "normal",
+				"helperAttributes": {},
+				"folder": "ca1da314-25c9-d3dc-9621-b091cfd125db"
+			}
+		],
+		"timestamp": 1478059378750,
+		"synced": false,
+		"syncedFilename": "",
+		"remote_id": 0,
+		"remoteLink": "",
+		"remoteLinkUpdatedAt": null,
+		"public": false,
+		"owner": "433150",
+		"subscribed": false,
+		"createdAt": 1478059378789,
+		"updatedAt": 1478075246811,
+		"write": true,
+		"isDeleted": false,
+		"published": false,
+		"favorite": false,
+		"permissions": {},
+		"syncedPermissions": {}
+	},
+	"folder": null,
+	"environment": null,
+	"globals": [],
+	"results": [
+		{
+			"id": "fd54f905-4222-99fd-4346-cc7df385c13b",
+			"name": "http://vm343d.se.rit.edu:3000/revenue/employee/98798",
+			"url": "http://vm343d.se.rit.edu:3000/revenue/employee/98798",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Passing eID that does not exist returns invalid": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Passing eID that does not exist returns invalid": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Passing eID that does not exist returns invalid": true
+				}
+			],
+			"time": 7,
+			"totalRequestTime": 7,
+			"iterationResults": {}
+		},
+		{
+			"id": "0f6cd34d-5cad-0c71-d063-47e74dc66f9b",
+			"name": "http://vm343d.se.rit.edu:3000/revenue/employee/test",
+			"url": "http://vm343d.se.rit.edu:3000/revenue/employee/test",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Passing eID that does not exist returns invalid": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Passing eID that does not exist returns invalid": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Passing eID that does not exist returns invalid": true
+				}
+			],
+			"time": 5,
+			"totalRequestTime": 5,
+			"iterationResults": {}
+		},
+		{
+			"id": "2e59285e-a41c-dc08-83a5-1624cb036510",
+			"name": "http://vm343d.se.rit.edu:3000/revenue/employee/2",
+			"url": "http://vm343d.se.rit.edu:3000/revenue/employee/2",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Passing eID 2 returns 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Passing eID 2 returns 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Passing eID 2 returns 200": true
+				}
+			],
+			"time": 6,
+			"totalRequestTime": 6,
+			"iterationResults": {}
+		},
+		{
+			"id": "b49af8a2-5df3-b8a7-adf8-43b882307ae7",
+			"name": "http://vm343d.se.rit.edu:3000/revenue/employee/18",
+			"url": "http://vm343d.se.rit.edu:3000/revenue/employee/18",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Passing eID 18 returns 50": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Passing eID 18 returns 50": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Passing eID 18 returns 50": true
+				}
+			],
+			"time": 7,
+			"totalRequestTime": 7,
+			"iterationResults": {}
+		},
+		{
+			"id": "15b7b517-2142-aa15-d900-684221c099c8",
+			"name": "http://vm343d.se.rit.edu:3000/paycheck/fail",
+			"url": "http://vm343d.se.rit.edu:3000/paycheck/fail",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Passing 'fail' as a eID returns 'invalid'": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Passing 'fail' as a eID returns 'invalid'": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Passing 'fail' as a eID returns 'invalid'": true
+				}
+			],
+			"time": 6,
+			"totalRequestTime": 6,
+			"iterationResults": {}
+		},
+		{
+			"id": "adbb4fd3-bd9f-fe15-a29d-ea3d42cf9e8a",
+			"name": "http://vm343d.se.rit.edu:3000/paycheck/1",
+			"url": "http://vm343d.se.rit.edu:3000/paycheck/1",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Get salary for eId=1 returns 50000": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Get salary for eId=1 returns 50000": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				120
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Get salary for eId=1 returns 50000": true
+				}
+			],
+			"time": 120,
+			"totalRequestTime": 120,
+			"iterationResults": {}
+		},
+		{
+			"id": "56da4813-469e-1b54-09ac-e8b05e01e2aa",
+			"name": "http://vm343d.se.rit.edu:3000/paycheck/3",
+			"url": "http://vm343d.se.rit.edu:3000/paycheck/3",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Get salary for eId=3 returns 50": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Get salary for eId=3 returns 50": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				41
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Get salary for eId=3 returns 50": true
+				}
+			],
+			"time": 41,
+			"totalRequestTime": 41,
+			"iterationResults": {}
+		},
+		{
+			"id": "f7b1eff9-1daf-36a3-acdc-58b34870df8c",
+			"name": "http://vm343d.se.rit.edu:3000/paycheck/6",
+			"url": "http://vm343d.se.rit.edu:3000/paycheck/6",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Get salary for valid eID that doesn't exist returns detailed message": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Get salary for valid eID that doesn't exist returns detailed message": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				94
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Get salary for valid eID that doesn't exist returns detailed message": true
+				}
+			],
+			"time": 94,
+			"totalRequestTime": 94,
+			"iterationResults": {}
+		},
+		{
+			"id": "ef2198d1-4eb0-f73f-772a-cd165f204db3",
+			"name": "http://vm343d.se.rit.edu:3000/humanresources/expenses",
+			"url": "http://vm343d.se.rit.edu:3000/humanresources/expenses",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Returns total salary of all employees in Human Resources": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Returns total salary of all employees in Human Resources": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				34
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Returns total salary of all employees in Human Resources": true
+				}
+			],
+			"time": 34,
+			"totalRequestTime": 34,
+			"iterationResults": {}
+		},
+		{
+			"id": "2e9668d0-62d0-fa66-15db-bf937438c28c",
+			"name": "http://vm343d.se.rit.edu:3000/verifyCustomerSupportEID/jhbjh",
+			"url": "http://vm343d.se.rit.edu:3000/verifyCustomerSupportEID/jhbjh",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Invalid employee ID returns appropriate message": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Invalid employee ID returns appropriate message": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				97
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Invalid employee ID returns appropriate message": true
+				}
+			],
+			"time": 97,
+			"totalRequestTime": 97,
+			"iterationResults": {}
+		},
+		{
+			"id": "29d7027f-8b01-f09a-1ce1-ce3acf8f534f",
+			"name": "http://vm343d.se.rit.edu:3000/verifyCustomerSupportEID/2",
+			"url": "http://vm343d.se.rit.edu:3000/verifyCustomerSupportEID/2",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"tests": {
+				"Status code is 200": true,
+				"False boolean is returned if employee is not Customer Support": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"False boolean is returned if employee is not Customer Support": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				18
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"False boolean is returned if employee is not Customer Support": true
+				}
+			],
+			"time": 18,
+			"totalRequestTime": 18,
+			"iterationResults": {}
+		},
+		{
+			"id": "7c14ecc4-ba90-874a-796b-f35d3e72b262",
+			"name": "http://vm343d.se.rit.edu:3000/verifyCustomerSupportEID/1",
+			"url": "http://vm343d.se.rit.edu:3000/verifyCustomerSupportEID/1",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"tests": {
+				"Status code is 200": true,
+				"False boolean is returned if employee is not Customer Support": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"False boolean is returned if employee is not Customer Support": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				14
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"False boolean is returned if employee is not Customer Support": true
+				}
+			],
+			"time": 14,
+			"totalRequestTime": 14,
+			"iterationResults": {}
+		},
+		{
+			"id": "808cf7d0-b737-188a-02a3-7de0ea5c50e3",
+			"name": "http://vm343d.se.rit.edu:3000/verifyCustomerSupportEID/234234",
+			"url": "http://vm343d.se.rit.edu:3000/verifyCustomerSupportEID/234234",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"tests": {
+				"Status code is 200": true,
+				"False boolean is returned if employee does not exist, but ID is an integer > 0": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"False boolean is returned if employee does not exist, but ID is an integer > 0": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				35
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"False boolean is returned if employee does not exist, but ID is an integer > 0": true
+				}
+			],
+			"time": 35,
+			"totalRequestTime": 35,
+			"iterationResults": {}
+		},
+		{
+			"id": "488a3091-e27b-c4ad-6544-25d2e65ef94c",
+			"name": "http://vm343d.se.rit.edu:3000/getEmployeeDepartment/sdfsf",
+			"url": "http://vm343d.se.rit.edu:3000/getEmployeeDepartment/sdfsf",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Returns invalid if eID provided is not integer > 0": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Returns invalid if eID provided is not integer > 0": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				22
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Returns invalid if eID provided is not integer > 0": true
+				}
+			],
+			"time": 22,
+			"totalRequestTime": 22,
+			"iterationResults": {}
+		},
+		{
+			"id": "06e8d565-67b3-9f5e-8eb1-9e566c88b29a",
+			"name": "http://vm343d.se.rit.edu:3000/getEmployeeDepartment/1",
+			"url": "http://vm343d.se.rit.edu:3000/getEmployeeDepartment/1",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Returns 'customer support' for an employee in Customer Support": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Returns 'customer support' for an employee in Customer Support": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				116
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Returns 'customer support' for an employee in Customer Support": true
+				}
+			],
+			"time": 116,
+			"totalRequestTime": 116,
+			"iterationResults": {}
+		},
+		{
+			"id": "9e23bb87-def9-b7d0-c56f-a0a8577fab26",
+			"name": "http://vm343d.se.rit.edu:3000/getEmployeeDepartment/2",
+			"url": "http://vm343d.se.rit.edu:3000/getEmployeeDepartment/2",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Returns 'Manufacturing' for an employee in Manufacturing": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Returns 'Manufacturing' for an employee in Manufacturing": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				117
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Returns 'Manufacturing' for an employee in Manufacturing": true
+				}
+			],
+			"time": 117,
+			"totalRequestTime": 117,
+			"iterationResults": {}
+		},
+		{
+			"id": "7cec3f22-5e9a-2f61-0e8f-6a926aa23820",
+			"name": "http://vm343d.se.rit.edu:3000/getEmployeeDepartment/3",
+			"url": "http://vm343d.se.rit.edu:3000/getEmployeeDepartment/3",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Returns 'Human Resources' for an employee in Human Resources": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Returns 'Human Resources' for an employee in Human Resources": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				83
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Returns 'Human Resources' for an employee in Human Resources": true
+				}
+			],
+			"time": 83,
+			"totalRequestTime": 83,
+			"iterationResults": {}
+		},
+		{
+			"id": "a41e5353-efb5-0a10-4fd1-756596d05e3b",
+			"name": "http://vm343d.se.rit.edu:3000/getEmployeeDepartment/5",
+			"url": "http://vm343d.se.rit.edu:3000/getEmployeeDepartment/5",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Returns 'Sales' for an employee in Sales": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Returns 'Sales' for an employee in Sales": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Returns 'Sales' for an employee in Sales": true
+				}
+			],
+			"time": 6,
+			"totalRequestTime": 6,
+			"iterationResults": {}
+		},
+		{
+			"id": "f3749fa1-59a0-9c4b-6b6c-2b8976a45395",
+			"name": "http://vm343d.se.rit.edu:3000/getEmployeeDepartment/6",
+			"url": "http://vm343d.se.rit.edu:3000/getEmployeeDepartment/6",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Returns empty array is employee does not exist": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Returns empty array is employee does not exist": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				112
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Returns empty array is employee does not exist": true
+				}
+			],
+			"time": 112,
+			"totalRequestTime": 112,
+			"iterationResults": {}
+		},
+		{
+			"id": "5765b360-0463-19ad-a594-ab7cdca690a9",
+			"name": "http://vm343d.se.rit.edu:3000/verifySalesEID/234234",
+			"url": "http://vm343d.se.rit.edu:3000/verifySalesEID/234234",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"tests": {
+				"Status code is 200": true,
+				"False boolean is returned if employee does not exist, but ID is an integer > 0": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"False boolean is returned if employee does not exist, but ID is an integer > 0": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				36
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"False boolean is returned if employee does not exist, but ID is an integer > 0": true
+				}
+			],
+			"time": 36,
+			"totalRequestTime": 36,
+			"iterationResults": {}
+		},
+		{
+			"id": "2a22ab24-cc0d-00f8-426d-ea34868f1236",
+			"name": "http://vm343d.se.rit.edu:3000/verifySalesEID/5",
+			"url": "http://vm343d.se.rit.edu:3000/verifySalesEID/5",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"tests": {
+				"Status code is 200": true,
+				"True boolean is returned if employee is not Sales": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"True boolean is returned if employee is not Sales": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				20
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"True boolean is returned if employee is not Sales": true
+				}
+			],
+			"time": 20,
+			"totalRequestTime": 20,
+			"iterationResults": {}
+		},
+		{
+			"id": "a9ef6c01-1280-0783-41f8-2f9c6849012a",
+			"name": "http://vm343d.se.rit.edu:3000/verifySalesEID/jhbjh",
+			"url": "http://vm343d.se.rit.edu:3000/verifySalesEID/jhbjh",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Invalid employee ID returns appropriate message": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Invalid employee ID returns appropriate message": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				105
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Invalid employee ID returns appropriate message": true
+				}
+			],
+			"time": 105,
+			"totalRequestTime": 105,
+			"iterationResults": {}
+		},
+		{
+			"id": "909dec33-8c10-52f0-49f1-6aa90d79d586",
+			"name": "http://vm343d.se.rit.edu:3000/verifySalesEID/2",
+			"url": "http://vm343d.se.rit.edu:3000/verifySalesEID/2",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"tests": {
+				"Status code is 200": true,
+				"False boolean is returned if employee is not Sales": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"False boolean is returned if employee is not Sales": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				55
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"False boolean is returned if employee is not Sales": true
+				}
+			],
+			"time": 55,
+			"totalRequestTime": 55,
+			"iterationResults": {}
+		}
+	],
+	"totalPass": 46,
+	"totalFail": 0,
+	"totalTime": 1156,
+	"lifecycle": "done",
+	"willStop": false,
+	"requests": [
+		{
+			"name": "http://vm343d.se.rit.edu:3000/revenue/employee/98798",
+			"id": "fd54f905-4222-99fd-4346-cc7df385c13b",
+			"url": "http://vm343d.se.rit.edu:3000/revenue/employee/98798",
+			"time": 7,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Passing eID that does not exist returns invalid": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"gridTitles": [
+				"Status code is 200",
+				"Passing eID that does not exist returns invalid"
+			],
+			"gridData": [
+				[
+					true,
+					true
+				]
+			],
+			"tests": {
+				"Status code is 200": true,
+				"Passing eID that does not exist returns invalid": true
+			}
+		},
+		{
+			"name": "http://vm343d.se.rit.edu:3000/revenue/employee/test",
+			"id": "0f6cd34d-5cad-0c71-d063-47e74dc66f9b",
+			"url": "http://vm343d.se.rit.edu:3000/revenue/employee/test",
+			"time": 5,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Passing eID that does not exist returns invalid": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"gridTitles": [
+				"Status code is 200",
+				"Passing eID that does not exist returns invalid"
+			],
+			"gridData": [
+				[
+					true,
+					true
+				]
+			],
+			"tests": {
+				"Status code is 200": true,
+				"Passing eID that does not exist returns invalid": true
+			}
+		},
+		{
+			"name": "http://vm343d.se.rit.edu:3000/revenue/employee/2",
+			"id": "2e59285e-a41c-dc08-83a5-1624cb036510",
+			"url": "http://vm343d.se.rit.edu:3000/revenue/employee/2",
+			"time": 6,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Passing eID 2 returns 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"gridTitles": [
+				"Status code is 200",
+				"Passing eID 2 returns 200"
+			],
+			"gridData": [
+				[
+					true,
+					true
+				]
+			],
+			"tests": {
+				"Status code is 200": true,
+				"Passing eID 2 returns 200": true
+			}
+		},
+		{
+			"name": "http://vm343d.se.rit.edu:3000/revenue/employee/18",
+			"id": "b49af8a2-5df3-b8a7-adf8-43b882307ae7",
+			"url": "http://vm343d.se.rit.edu:3000/revenue/employee/18",
+			"time": 7,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Passing eID 18 returns 50": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"gridTitles": [
+				"Status code is 200",
+				"Passing eID 18 returns 50"
+			],
+			"gridData": [
+				[
+					true,
+					true
+				]
+			],
+			"tests": {
+				"Status code is 200": true,
+				"Passing eID 18 returns 50": true
+			}
+		},
+		{
+			"name": "http://vm343d.se.rit.edu:3000/paycheck/fail",
+			"id": "15b7b517-2142-aa15-d900-684221c099c8",
+			"url": "http://vm343d.se.rit.edu:3000/paycheck/fail",
+			"time": 6,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Passing 'fail' as a eID returns 'invalid'": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"gridTitles": [
+				"Status code is 200",
+				"Passing 'fail' as a eID returns 'invalid'"
+			],
+			"gridData": [
+				[
+					true,
+					true
+				]
+			],
+			"tests": {
+				"Status code is 200": true,
+				"Passing 'fail' as a eID returns 'invalid'": true
+			}
+		},
+		{
+			"name": "http://vm343d.se.rit.edu:3000/paycheck/1",
+			"id": "adbb4fd3-bd9f-fe15-a29d-ea3d42cf9e8a",
+			"url": "http://vm343d.se.rit.edu:3000/paycheck/1",
+			"time": 120,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Get salary for eId=1 returns 50000": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"gridTitles": [
+				"Status code is 200",
+				"Get salary for eId=1 returns 50000"
+			],
+			"gridData": [
+				[
+					true,
+					true
+				]
+			],
+			"tests": {
+				"Status code is 200": true,
+				"Get salary for eId=1 returns 50000": true
+			}
+		},
+		{
+			"name": "http://vm343d.se.rit.edu:3000/paycheck/3",
+			"id": "56da4813-469e-1b54-09ac-e8b05e01e2aa",
+			"url": "http://vm343d.se.rit.edu:3000/paycheck/3",
+			"time": 41,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Get salary for eId=3 returns 50": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"gridTitles": [
+				"Status code is 200",
+				"Get salary for eId=3 returns 50"
+			],
+			"gridData": [
+				[
+					true,
+					true
+				]
+			],
+			"tests": {
+				"Status code is 200": true,
+				"Get salary for eId=3 returns 50": true
+			}
+		},
+		{
+			"name": "http://vm343d.se.rit.edu:3000/paycheck/6",
+			"id": "f7b1eff9-1daf-36a3-acdc-58b34870df8c",
+			"url": "http://vm343d.se.rit.edu:3000/paycheck/6",
+			"time": 94,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Get salary for valid eID that doesn't exist returns detailed message": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"gridTitles": [
+				"Status code is 200",
+				"Get salary for valid eID that doesn't exist returns detailed message"
+			],
+			"gridData": [
+				[
+					true,
+					true
+				]
+			],
+			"tests": {
+				"Status code is 200": true,
+				"Get salary for valid eID that doesn't exist returns detailed message": true
+			}
+		},
+		{
+			"name": "http://vm343d.se.rit.edu:3000/humanresources/expenses",
+			"id": "ef2198d1-4eb0-f73f-772a-cd165f204db3",
+			"url": "http://vm343d.se.rit.edu:3000/humanresources/expenses",
+			"time": 34,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Returns total salary of all employees in Human Resources": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"gridTitles": [
+				"Status code is 200",
+				"Returns total salary of all employees in Human Resources"
+			],
+			"gridData": [
+				[
+					true,
+					true
+				]
+			],
+			"tests": {
+				"Status code is 200": true,
+				"Returns total salary of all employees in Human Resources": true
+			}
+		},
+		{
+			"name": "http://vm343d.se.rit.edu:3000/verifyCustomerSupportEID/jhbjh",
+			"id": "2e9668d0-62d0-fa66-15db-bf937438c28c",
+			"url": "http://vm343d.se.rit.edu:3000/verifyCustomerSupportEID/jhbjh",
+			"time": 97,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Invalid employee ID returns appropriate message": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"gridTitles": [
+				"Status code is 200",
+				"Invalid employee ID returns appropriate message"
+			],
+			"gridData": [
+				[
+					true,
+					true
+				]
+			],
+			"tests": {
+				"Status code is 200": true,
+				"Invalid employee ID returns appropriate message": true
+			}
+		},
+		{
+			"name": "http://vm343d.se.rit.edu:3000/verifyCustomerSupportEID/2",
+			"id": "29d7027f-8b01-f09a-1ce1-ce3acf8f534f",
+			"url": "http://vm343d.se.rit.edu:3000/verifyCustomerSupportEID/2",
+			"time": 18,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"False boolean is returned if employee is not Customer Support": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"gridTitles": [
+				"Status code is 200",
+				"False boolean is returned if employee is not Customer Support"
+			],
+			"gridData": [
+				[
+					true,
+					true
+				]
+			],
+			"tests": {
+				"Status code is 200": true,
+				"False boolean is returned if employee is not Customer Support": true
+			}
+		},
+		{
+			"name": "http://vm343d.se.rit.edu:3000/verifyCustomerSupportEID/1",
+			"id": "7c14ecc4-ba90-874a-796b-f35d3e72b262",
+			"url": "http://vm343d.se.rit.edu:3000/verifyCustomerSupportEID/1",
+			"time": 14,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"False boolean is returned if employee is not Customer Support": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"gridTitles": [
+				"Status code is 200",
+				"False boolean is returned if employee is not Customer Support"
+			],
+			"gridData": [
+				[
+					true,
+					true
+				]
+			],
+			"tests": {
+				"Status code is 200": true,
+				"False boolean is returned if employee is not Customer Support": true
+			}
+		},
+		{
+			"name": "http://vm343d.se.rit.edu:3000/verifyCustomerSupportEID/234234",
+			"id": "808cf7d0-b737-188a-02a3-7de0ea5c50e3",
+			"url": "http://vm343d.se.rit.edu:3000/verifyCustomerSupportEID/234234",
+			"time": 35,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"False boolean is returned if employee does not exist, but ID is an integer > 0": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"gridTitles": [
+				"Status code is 200",
+				"False boolean is returned if employee does not exist, but ID is an integer > 0"
+			],
+			"gridData": [
+				[
+					true,
+					true
+				]
+			],
+			"tests": {
+				"Status code is 200": true,
+				"False boolean is returned if employee does not exist, but ID is an integer > 0": true
+			}
+		},
+		{
+			"name": "http://vm343d.se.rit.edu:3000/getEmployeeDepartment/sdfsf",
+			"id": "488a3091-e27b-c4ad-6544-25d2e65ef94c",
+			"url": "http://vm343d.se.rit.edu:3000/getEmployeeDepartment/sdfsf",
+			"time": 22,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Returns invalid if eID provided is not integer > 0": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"gridTitles": [
+				"Status code is 200",
+				"Returns invalid if eID provided is not integer > 0"
+			],
+			"gridData": [
+				[
+					true,
+					true
+				]
+			],
+			"tests": {
+				"Status code is 200": true,
+				"Returns invalid if eID provided is not integer > 0": true
+			}
+		},
+		{
+			"name": "http://vm343d.se.rit.edu:3000/getEmployeeDepartment/1",
+			"id": "06e8d565-67b3-9f5e-8eb1-9e566c88b29a",
+			"url": "http://vm343d.se.rit.edu:3000/getEmployeeDepartment/1",
+			"time": 116,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Returns 'customer support' for an employee in Customer Support": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"gridTitles": [
+				"Status code is 200",
+				"Returns 'customer support' for an employee in Customer Support"
+			],
+			"gridData": [
+				[
+					true,
+					true
+				]
+			],
+			"tests": {
+				"Status code is 200": true,
+				"Returns 'customer support' for an employee in Customer Support": true
+			}
+		},
+		{
+			"name": "http://vm343d.se.rit.edu:3000/getEmployeeDepartment/2",
+			"id": "9e23bb87-def9-b7d0-c56f-a0a8577fab26",
+			"url": "http://vm343d.se.rit.edu:3000/getEmployeeDepartment/2",
+			"time": 117,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Returns 'Manufacturing' for an employee in Manufacturing": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"gridTitles": [
+				"Status code is 200",
+				"Returns 'Manufacturing' for an employee in Manufacturing"
+			],
+			"gridData": [
+				[
+					true,
+					true
+				]
+			],
+			"tests": {
+				"Status code is 200": true,
+				"Returns 'Manufacturing' for an employee in Manufacturing": true
+			}
+		},
+		{
+			"name": "http://vm343d.se.rit.edu:3000/getEmployeeDepartment/3",
+			"id": "7cec3f22-5e9a-2f61-0e8f-6a926aa23820",
+			"url": "http://vm343d.se.rit.edu:3000/getEmployeeDepartment/3",
+			"time": 83,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Returns 'Human Resources' for an employee in Human Resources": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"gridTitles": [
+				"Status code is 200",
+				"Returns 'Human Resources' for an employee in Human Resources"
+			],
+			"gridData": [
+				[
+					true,
+					true
+				]
+			],
+			"tests": {
+				"Status code is 200": true,
+				"Returns 'Human Resources' for an employee in Human Resources": true
+			}
+		},
+		{
+			"name": "http://vm343d.se.rit.edu:3000/getEmployeeDepartment/5",
+			"id": "a41e5353-efb5-0a10-4fd1-756596d05e3b",
+			"url": "http://vm343d.se.rit.edu:3000/getEmployeeDepartment/5",
+			"time": 6,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Returns 'Sales' for an employee in Sales": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"gridTitles": [
+				"Status code is 200",
+				"Returns 'Sales' for an employee in Sales"
+			],
+			"gridData": [
+				[
+					true,
+					true
+				]
+			],
+			"tests": {
+				"Status code is 200": true,
+				"Returns 'Sales' for an employee in Sales": true
+			}
+		},
+		{
+			"name": "http://vm343d.se.rit.edu:3000/getEmployeeDepartment/6",
+			"id": "f3749fa1-59a0-9c4b-6b6c-2b8976a45395",
+			"url": "http://vm343d.se.rit.edu:3000/getEmployeeDepartment/6",
+			"time": 112,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Returns empty array is employee does not exist": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"gridTitles": [
+				"Status code is 200",
+				"Returns empty array is employee does not exist"
+			],
+			"gridData": [
+				[
+					true,
+					true
+				]
+			],
+			"tests": {
+				"Status code is 200": true,
+				"Returns empty array is employee does not exist": true
+			}
+		},
+		{
+			"name": "http://vm343d.se.rit.edu:3000/verifySalesEID/234234",
+			"id": "5765b360-0463-19ad-a594-ab7cdca690a9",
+			"url": "http://vm343d.se.rit.edu:3000/verifySalesEID/234234",
+			"time": 36,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"False boolean is returned if employee does not exist, but ID is an integer > 0": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"gridTitles": [
+				"Status code is 200",
+				"False boolean is returned if employee does not exist, but ID is an integer > 0"
+			],
+			"gridData": [
+				[
+					true,
+					true
+				]
+			],
+			"tests": {
+				"Status code is 200": true,
+				"False boolean is returned if employee does not exist, but ID is an integer > 0": true
+			}
+		},
+		{
+			"name": "http://vm343d.se.rit.edu:3000/verifySalesEID/5",
+			"id": "2a22ab24-cc0d-00f8-426d-ea34868f1236",
+			"url": "http://vm343d.se.rit.edu:3000/verifySalesEID/5",
+			"time": 20,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"True boolean is returned if employee is not Sales": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"gridTitles": [
+				"Status code is 200",
+				"True boolean is returned if employee is not Sales"
+			],
+			"gridData": [
+				[
+					true,
+					true
+				]
+			],
+			"tests": {
+				"Status code is 200": true,
+				"True boolean is returned if employee is not Sales": true
+			}
+		},
+		{
+			"name": "http://vm343d.se.rit.edu:3000/verifySalesEID/jhbjh",
+			"id": "a9ef6c01-1280-0783-41f8-2f9c6849012a",
+			"url": "http://vm343d.se.rit.edu:3000/verifySalesEID/jhbjh",
+			"time": 105,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Invalid employee ID returns appropriate message": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"gridTitles": [
+				"Status code is 200",
+				"Invalid employee ID returns appropriate message"
+			],
+			"gridData": [
+				[
+					true,
+					true
+				]
+			],
+			"tests": {
+				"Status code is 200": true,
+				"Invalid employee ID returns appropriate message": true
+			}
+		},
+		{
+			"name": "http://vm343d.se.rit.edu:3000/verifySalesEID/2",
+			"id": "909dec33-8c10-52f0-49f1-6aa90d79d586",
+			"url": "http://vm343d.se.rit.edu:3000/verifySalesEID/2",
+			"time": 55,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"False boolean is returned if employee is not Sales": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"gridTitles": [
+				"Status code is 200",
+				"False boolean is returned if employee is not Sales"
+			],
+			"gridData": [
+				[
+					true,
+					true
+				]
+			],
+			"tests": {
+				"Status code is 200": true,
+				"False boolean is returned if employee is not Sales": true
+			}
+		}
+	],
+	"synced": false
+}
