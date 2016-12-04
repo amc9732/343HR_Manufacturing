@@ -7,10 +7,12 @@
  */
  var displayTableBase = "<tbody><tr><th>Employee ID</th><th>Salary</th><th>Commission</th><th>Paycheck Value</th></tr></tbody>";
 
+ 
  $("#searchEmployees").click(function(e) {
      $('#displayTable').html(displayTableBase);
 	 var employeeID = document.getElementById("employeeID").value;
 	 var salaryValue;
+	 var tempValue;
 	 console.log(employeeID)
 	 var eID;
 	 if (employeeID > 0){
@@ -44,6 +46,8 @@
                         });
 
                         $('#displayTable').append(tableContent);
+						logMessage = "Salary for employee " + employeeID + " is: " + tempValue; 
+						logger("humanresources", 6,logMessage);
                     },
                     error: function(error){
                         console.log(error);
