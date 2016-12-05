@@ -17,10 +17,11 @@
 
 function logger(silo, severity, message) {
     // send log message to the database
+	console.log("HR logger");
     $.ajax({
         url: '/log',
         type: "post",
-		 data: {silo : silo, severity : severity, message: message},
+		data: {silo : silo, severity : severity, message: message},
         context: this,
         success: function (response){
                 console.log("Logged")
