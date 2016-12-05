@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var authenticated = false;
+const proxy = require('express-http-proxy');
 var mysql = require('mysql');
 var connection = mysql.createConnection({
   host: "localhost",
@@ -11,6 +12,7 @@ var connection = mysql.createConnection({
 var bodyParser = require('body-parser');
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+app.use('/sales/', proxy('vm343c.se.rit.edu:8000'));
 
 
 //connection.connect();
@@ -119,26 +121,7 @@ app.get('/paycheck/?:id', function(req, res){
 	}
 });
 
-app.get('/revenue/employee/?:id', function(req, res){
-	if(authenticated){
-		//This functionality is stubbed out. The real API call will go to the sales silo.
-		// API Call currently returns 200 (dollars) representing total commission sales
-		var employeeID = req.params.id;
-		if (employeeID > 0 && employeeID < 10){
-		    testData = {commission:200};
-		} else if (employeeID > 10 && employeeID < 20){
-		    testData = {commission:50};
-		} else {
-		    testData = {message:"That user does not exist."};
-		}
-		var string=JSON.stringify(testData);
-		res.json(testData);
-	}
-	else{
-		res.sendFile('notloggedin.html', {'root' :__dirname + '/templates'})
-	}
 
-});
 
 
 app.get('/showEmployees', function(req, res){
@@ -348,12 +331,13 @@ app.post('/log', function(req,res){
 	// API endpoint for Cross-Cutting Concern: Logging
 	console.log('Logging:');
 	console.log(req.body);
+	//var test = JSON.parse(req.body)
+	//console.log(test[0]);
 	
 	var record = {severity:req.body.severity, message:req.body.message};
 	console.log(record);
 
 	connection.query('INSERT INTO logging_database.humanresourceslog SET ?', record, function(err, results) {
-	//connection.query('SELECT * FROM logging_database.humanresourceslog', function(err,results){
 		console.log("testing");
         if(err) throw err;
 	});

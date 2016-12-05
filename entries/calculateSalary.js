@@ -30,7 +30,7 @@
                 $.ajax({
                     dataType: 'json',
                     type: "GET",
-                    url: '/revenue/employee/' + employeeID,
+                    url: '/sales/revenue/employee/' + employeeID,
                     data: {eID : employeeID},
                     context: this,
                     success: function (json){
