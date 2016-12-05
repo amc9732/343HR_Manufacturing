@@ -5,8 +5,8 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "",
-  port: 3306
+  password: "test",
+  port: 3308
 });
 var bodyParser = require('body-parser');
 app.use(bodyParser.json()); // for parsing application/json
@@ -344,3 +344,18 @@ app.post('/verifyuser', function(req,res){
 
 });
 
+app.post('/log', function(req,res){
+	// API endpoint for Cross-Cutting Concern: Logging
+	console.log('Logging:');
+	console.log(req.body);
+	
+	var record = {severity:req.body.severity, message:req.body.message};
+	console.log(record);
+
+	connection.query('INSERT INTO logging_database.humanresourceslog SET ?', record, function(err, results) {
+	//connection.query('SELECT * FROM logging_database.humanresourceslog', function(err,results){
+		console.log("testing");
+        if(err) throw err;
+	});
+
+});
