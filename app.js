@@ -181,7 +181,7 @@ app.get('/verifyCustomerSupportEID/?:eid', function(req, res){
                 if(err) throw err;
                 var string = JSON.stringify(results);
                 console.log(string);
-                if(string == '[{"department":"Human Resources"}]' ){
+                if(string == '[{"department":"Customer Support"}]' ){
                     testData = {bool:true};
                     var string=JSON.stringify(testData);
                     res.json(testData);
